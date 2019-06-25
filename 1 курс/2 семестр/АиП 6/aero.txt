@@ -1,0 +1,15 @@
+Sevastopol-Evpatoriya
+36
+3.45
+5.5
+250
+Evpatoriya-Sevastopol
+25
+9.3
+10.55
+210
+Sevastopol-Moscow
+287
+13.45
+16.4
+450

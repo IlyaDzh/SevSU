@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title> О себе </title>
+	</head>
+
+<body bgcolor="#BA55D3">
+
+	<header>
+		<h1 align=center> О себе: </h1>
+		<img src="foto.jpg" width=100% height="" alt="Я">
+	</header>
+
+	<article>
+		<h2 align=center> Биография: </h2>
+		<p> Тут должен быть текст, но я его не придумал. </p>
+		<h3 align=center> Интересы и увлечения: </h3>
+		<ul>
+			<li> Настольный теннис; </li>
+			<li> Компьютерные игры; </li>
+			<li> Кино и музыка; </li>
+		</ul>
+		<p> Моя страница в ВКонтакте - 
+		<a href="https://vk.com/id43336530">Перейти.</a>  
+		</p>
+	</article>
+
+</body>
+
+</html>

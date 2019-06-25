@@ -1,0 +1,12 @@
+var n,i:integer;
+    x,a:double;
+begin
+write('¬ведите n:'); 
+readln(n);
+write('¬ведите x:'); 
+readln(x);
+a:=1;
+for i:=1 to n do 
+    a:=-a*x*x/(n);
+writeln(a);
+end.

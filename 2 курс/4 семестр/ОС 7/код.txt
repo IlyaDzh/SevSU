@@ -1,0 +1,28 @@
+cd D:\Temp\
+D:
+md A
+cd D:\Temp\A
+md B C D
+md D:\Temp\A\C\E
+tree
+md d:\temp\A\A1 d:\temp\A\A2
+md d:\temp\A\B\B2
+copy con D:\Temp\A\B\Name.txt
+Информация о студентах^Z
+copy con D:\Temp\A\B\Date.txt
+Информация о датах рождения^Z
+copy con D:\Temp\A\C\Name.txt
+Информация о названии Вуза и специальность^Z
+copy con D:\Temp\A\C\Mark.txt
+Информация о оценках на экзаменах и сумма баллов^Z
+copy con D:\Temp\A\C\E\Hobby.txt
+Увлечения студентов^Z
+copy D:\Temp\A\C\E\Hobby.txt D:\Temp\A\A2
+ren D:\Temp\A\A2\Hobby.txt Lab_3_вариант.txt
+copy D:\Temp\A\A2\Lab_3_вариант.txt D:\Temp\A\A2\copy_Lab_3_вариант.txt
+type D:\Temp\A\C\Mark.txt
+cd C
+copy Mark.txt + Name.txt + D:\Temp\A\C\E\Hobby.txt All.txt
+type All.txt
+del /F /S D:\Temp\A\*A*.*
+del /F /S D:\Temp\A\*2*.*
