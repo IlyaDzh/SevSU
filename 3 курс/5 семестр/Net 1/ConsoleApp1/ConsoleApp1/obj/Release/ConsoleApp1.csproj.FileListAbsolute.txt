@@ -1,0 +1,7 @@
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe.config
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.exe
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\bin\Release\ConsoleApp1.pdb
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.exe
+C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 1\ConsoleApp1\ConsoleApp1\obj\Release\ConsoleApp1.pdb
