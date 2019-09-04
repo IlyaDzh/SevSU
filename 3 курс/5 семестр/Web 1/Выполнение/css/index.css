@@ -1,0 +1,32 @@
+.main-content {
+    text-align: center;
+}
+
+.main__photo {
+    border-radius: 50%;
+    border: 4px solid #2854ff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    max-height: 310px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.main__fio {
+    margin-bottom: 10px;
+}
+
+.main__group {
+
+}
+
+.lab-work {
+    margin-top: 30px;
+}
+
+.lab__number {
+
+}
+
+.lab__name {
+    font-style: italic;
+}
