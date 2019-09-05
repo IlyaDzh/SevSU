@@ -1,63 +1,15 @@
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
 }
 
-div,
-section,
-input,
-textarea,
-button {
-    display: block;
-}
-
-textarea {
-    resize: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: none;
-}
-
-.main-header {
-    height: 60px;
-    background-color: white;
-    border-bottom: 3px solid #2854ff;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-}
-
-.main-menu {
-    
-}
-
-.main-menu ul {
-    padding-top: 20px;
-    list-style: none;
+li {
     display: flex;
+    padding-left: 15px;
 }
 
-.main-menu ul li {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.main-menu ul li i {
-    font-size: 18px;
-    color: #2854ff;
-}
-
-.main-menu ul li a {
-    color: #2854ff;
-    padding-left: 10px;
-    font-size: 18px;
-    transition: all 0.15s ease;
-}
-
-.main-menu ul li a:hover {
-    color: #c7ff43;
+li i {
+    padding-top: 12px;
+    color: rgb(255, 255, 255);
 }
