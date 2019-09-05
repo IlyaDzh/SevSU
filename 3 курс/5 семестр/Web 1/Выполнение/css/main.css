@@ -13,3 +13,61 @@ li i {
     padding-top: 12px;
     color: rgb(255, 255, 255);
 }
+
+/* Main */
+
+.main-image img {
+    border-radius: 50%;
+    border: 5px solid #563d7c;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    max-height: 290px;
+    transition: max-height 0.2s ease;
+    margin: auto;
+}
+
+.main-image img:hover {
+    max-height: 300px;
+}
+
+.main-content {
+    text-align: center;
+}
+
+.lab-work {
+    margin-top: 20px;
+}
+
+.lab__name {
+    font-style: italic;
+    font-weight: 500;
+}
+
+.main-image {
+    display: flex;
+    height: 340px;
+}
+
+/* About */
+
+.about-content {
+    margin-top: 50px;
+}
+
+.about__title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Entertainment */
+
+.films, .music, .books, .games {
+    margin-top: 50px;
+}
+
+/* Contact */
+
+.contact-content {
+    margin-top: 50px;
+}
+
+/*  */
