@@ -4,14 +4,22 @@
     margin: 0;
 }
 
-li {
+nav li {
     display: flex;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
-li i {
+nav li i {
     padding-top: 12px;
     color: rgb(255, 255, 255);
+}
+
+.logo {
+    max-width: 75px;
+}
+
+.contact-content, .test-content, .about-content, .films, .music, .books, .games {
+    margin-top: 50px;
 }
 
 /* Main */
@@ -49,10 +57,6 @@ li i {
 
 /* About */
 
-.about-content {
-    margin-top: 50px;
-}
-
 .about__title {
     text-align: center;
     margin-bottom: 30px;
@@ -60,14 +64,9 @@ li i {
 
 /* Entertainment */
 
-.films, .music, .books, .games {
-    margin-top: 50px;
-}
-
-/* Contact */
-
-.contact-content {
-    margin-top: 50px;
+.list-anchor li {
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 /*  */

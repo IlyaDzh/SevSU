@@ -18,13 +18,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark  sticky-top" style="background-color:#563d7c"
         tyle="background-color:#6c1e2e">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Главная</a>
+            <a href="index.html" class="navbar-brand">
+                <img src="img/logo.png" class="logo" alt="logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
                 aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar1">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
                     <li class="nav-item">
                         <i class="fas fa-user"></i>
                         <a class="nav-link" href="about.html">Обо мне</a>
@@ -70,9 +76,6 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="InputEmail" placeholder="Введите email" autocomplete="off">
-            </div>
-            <div class="form-group">
                 <select class="form-control" id="FormControlSelect">
                     <option>Выберите вашу дату рождения</option>
                     <option>2018</option>
@@ -100,7 +103,11 @@
                 </select>
             </div>
             <div class="form-group">
-                <textarea class="form-control" id="FormControlTextarea" rows="4" placeholder="Введите сообщение"></textarea>
+                <input type="email" class="form-control" id="InputEmail" placeholder="Введите email" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="FormControlTextarea" rows="4"
+                    placeholder="Введите сообщение"></textarea>
             </div>
             <button class="btn btn-primary" type="submit" name="submit">Отправить</button>
             <button class="btn btn-danger" type="reset" name="reset">Очистить</button>
