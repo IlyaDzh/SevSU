@@ -18,15 +18,21 @@ nav li i {
     color: rgb(255, 255, 255);
 }
 
+.pt-6 {
+    padding-top: 60px;
+}
+
 .logo {
     max-width: 75px;
 }
 
-.content, .films, .music, .books, .games {
+.content {
     margin-top: 50px;
 }
 
-/* Main */
+.films, .music, .books, .games {
+    margin-top: 20px;
+}
 
 .main-image img {
     border-radius: 50%;
@@ -59,22 +65,21 @@ nav li i {
     height: 340px;
 }
 
-/* About */
-
 .about__title {
     text-align: center;
     margin-bottom: 30px;
 }
-
-/* Entertainment */
 
 .list-anchor li {
     padding-left: 8px;
     padding-right: 8px;
 }
 
-/* Study */
-
 .place__desc {
     font-size: 17px;
+}
+
+.photo__subtitle {
+    padding-top: 5px;
+    text-align: center;
 }
