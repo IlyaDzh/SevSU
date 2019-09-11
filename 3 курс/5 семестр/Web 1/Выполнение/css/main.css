@@ -8,6 +8,11 @@ body {
     background-color: whitesmoke;
 }
 
+.first {
+    background-color: #6b5291;
+    color: #f2f2f2;
+}
+
 nav li {
     display: flex;
     padding-left: 10px;
@@ -39,12 +44,12 @@ nav li i {
     border: 5px solid #563d7c;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
     max-height: 290px;
-    transition: max-height 0.2s ease;
+    transition: max-height 0.3s ease;
     margin: auto;
 }
 
 .main-image img:hover {
-    max-height: 300px;
+    max-height: 310px;
 }
 
 .main-content {
@@ -82,4 +87,20 @@ nav li i {
 .photo__subtitle {
     padding-top: 5px;
     text-align: center;
+}
+
+.img-wrapper {
+    overflow: hidden;
+}
+
+.inner-img {
+    transition: 0.3s;
+}
+
+.inner-img:hover {
+    transform: scale(1.1);
+}
+
+.img-elem .photo__subtitle {
+    margin-bottom: 20px;
 }
