@@ -8,11 +8,6 @@ body {
     background-color: whitesmoke;
 }
 
-.first {
-    background-color: #6b5291;
-    color: #f2f2f2;
-}
-
 nav li {
     display: flex;
     padding-left: 10px;
