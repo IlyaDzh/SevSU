@@ -1,0 +1,101 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+nav li {
+    display: flex;
+    padding-left: 10px;
+}
+
+nav li i {
+    padding-top: 12px;
+    color: rgb(255, 255, 255);
+}
+
+.pt-6 {
+    padding-top: 60px;
+}
+
+.logo {
+    max-width: 75px;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.films, .music, .books, .games, .race {
+    margin-top: 20px;
+}
+
+.main-image img {
+    border-radius: 50%;
+    border: 5px solid #563d7c;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    max-height: 290px;
+    transition: max-height 0.3s ease;
+    margin: auto;
+}
+
+.main-image img:hover {
+    max-height: 310px;
+}
+
+.main-content {
+    text-align: center;
+}
+
+.lab-work {
+    margin-top: 20px;
+}
+
+.lab__name {
+    font-style: italic;
+    font-weight: 500;
+}
+
+.main-image {
+    display: flex;
+    height: 340px;
+}
+
+.about__title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.list-anchor li {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.place__desc {
+    font-size: 17px;
+}
+
+.photo__subtitle {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.img-wrapper {
+    overflow: hidden;
+}
+
+.inner-img {
+    transition: 0.3s;
+}
+
+.inner-img:hover {
+    transform: scale(1.1);
+}
+
+.img-elem .photo__subtitle {
+    margin-bottom: 20px;
+}

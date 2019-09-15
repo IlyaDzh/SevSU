@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ilya D. | Тест</title>
+    <link rel="icon" href="img/icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark  sticky-top" style="background-color:#563d7c">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/logo.png" class="logo" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <a class="nav-link" href="about.html">Обо мне</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-gamepad"></i>
+                        <a class="nav-link" href="entertainment.html">Мои интересы</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-university"></i>
+                        <a class="nav-link" href="studies.html">Учеба</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-photo-video"></i>
+                        <a class="nav-link" href="photo.html">Фотоальбом</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <a class="nav-link" href="contact.html">Контакт</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-edit"></i>
+                        <a class="nav-link" href="test.html">Тест</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content container">
+        <h2 class="mb-4">Тест по основам дискретной математики</h2>
+        <form action="">
+            <div class="form-row mb-3">
+                <div class="form-group col-md-6">
+                    <label for="inputFIO">ФИО</label>
+                    <input type="text" class="form-control" id="inputFIO" placeholder="Введите ваше ФИО"
+                        autocomplete="off" autofocus>
+                    <div class="invalid-feedback">
+                        Неверный формат ввода! Пример: Иванов Иван Иванович
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputGroup">Группа</label>
+                    <input type="text" class="form-control" id="inputGroup" placeholder="Введите название группы"
+                        autocomplete="off">
+                    <div class="invalid-feedback">
+                        Необходимо заполнить поле!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="checkQ">Операции над множествами:</label>
+                <div id="checkQ">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Объединение</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Импликация</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                        <label class="form-check-label" for="inlineCheckbox3">Дополнение</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="selectQ">Количество собственных подмножеств множества из пяти элементов?</label>
+                <select class="form-control" id="selectQ">
+                    <option>Выберите ответ</option>
+                    <optgroup label=">30">
+                        <option>31</option>
+                        <option>32</option>
+                        <option>33</option>
+                    </optgroup>
+                    <optgroup label="<30">
+                        <option>2</option>
+                        <option>20</option>
+                        <option>25</option>
+                        <option>28</option>
+                    </optgroup>
+                </select>
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputQ">Что такое множество?</label>
+                <input type="text" class="form-control" id="inputQ" placeholder="Введите ответ" autocomplete="off">
+                <div class="invalid-feedback">
+                    Пустое поле или ответ содержит цифры!
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" name="submit" onclick="return ValidTest()">Отправить</button>
+            <button class="btn btn-danger" type="reset" name="reset">Очистить</button>
+        </form>
+    </section>
+
+    <script src="js/forms.js"></script>
+</body>
+
+</html>

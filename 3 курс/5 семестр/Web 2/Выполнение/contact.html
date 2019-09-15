@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ilya D. | Контакт</title>
+    <link rel="icon" href="img/icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#563d7c">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <img src="img/logo.png" class="logo" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-user"></i>
+                        <a class="nav-link" href="about.html">Обо мне</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-gamepad"></i>
+                        <a class="nav-link" href="entertainment.html">Мои интересы</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-university"></i>
+                        <a class="nav-link" href="studies.html">Учеба</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-photo-video"></i>
+                        <a class="nav-link" href="photo.html">Фотоальбом</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-envelope"></i>
+                        <a class="nav-link" href="contact.html">Контакт</a>
+                    </li>
+                    <li class="nav-item">
+                        <i class="fas fa-edit"></i>
+                        <a class="nav-link" href="test.html">Тест</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content container">
+        <form action="">
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputFio" placeholder="Введите ваше ФИО" autocomplete="off"
+                    autofocus>
+                <div class="invalid-feedback">
+                    Неверный формат ввода! Пример: Иванов Иван Иванович
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="option1" checked>
+                    <label class="form-check-label" for="Radios1">Мужчина</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="option2">
+                    <label class="form-check-label" for="Radios2">Женщина</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" id="inputSelect">
+                    <option>Выберите вашу дату рождения</option>
+                    <option>2018</option>
+                    <option>2017</option>
+                    <option>2016</option>
+                    <option>2015</option>
+                    <option>2014</option>
+                    <option>2013</option>
+                    <option>2012</option>
+                    <option>2011</option>
+                    <option>2010</option>
+                    <option>2009</option>
+                    <option>2008</option>
+                    <option>2007</option>
+                    <option>2006</option>
+                    <option>2005</option>
+                    <option>2004</option>
+                    <option>2003</option>
+                    <option>2002</option>
+                    <option>2001</option>
+                    <option>2000</option>
+                    <option>1999</option>
+                    <option>1998</option>
+                    <option>1997</option>
+                </select>
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputNum" placeholder="Введите номер телефона"
+                    autocomplete="off">
+                <div class="invalid-feedback">
+                    Неверный формат ввода! Пример: +79781234567
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Введите email" autocomplete="off">
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="inputText" rows="4" placeholder="Введите сообщение"></textarea>
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" name="submit"
+                onclick="return ValidContact()">Отправить</button>
+            <button class="btn btn-danger" type="reset" name="reset">Очистить</button>
+        </form>
+    </section>
+
+    <script src="js/forms.js"></script>
+</body>
+
+</html>
