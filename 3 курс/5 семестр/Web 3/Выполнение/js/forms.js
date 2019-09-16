@@ -1,3 +1,6 @@
+// 
+//убрать это гавно
+// 
 function ValidTest() {
     if (checkFio() && checkGroup() && checkSelect() && checkAns()) {
         alert("Тест отправлен!");
@@ -7,7 +10,7 @@ function ValidTest() {
 }
 
 function ValidContact() {
-    if (checkFio() && checkSelect() && checkNum() && checkEmail() && checkText()) {
+    if (checkFio() && checkDate() && checkNum() && checkEmail() && checkText()) {
         alert("Форма отправлена!");
         return true;
     }
@@ -98,3 +101,30 @@ function checkText() {
     text.classList.add('is-valid');
     return true;
 }
+
+function checkDate() {
+    var text = document.forms[0].inputDate;
+    if (text.value == '') {
+        text.classList.add('is-invalid');
+        text.focus();
+        return false;
+    }
+    text.classList.remove('is-invalid');
+    text.classList.add('is-valid');
+    return true;
+}
+
+// calendar
+
+var calInput = document.getElementById("inputDate");
+var calendar = document.getElementById("calendar");
+
+calInput.addEventListener("click", () => {
+    calendar.classList.add("visible");
+    document.addEventListener('click', (event) => {
+        if (event.target == calInput) return;
+        var isClickInside = calendar.contains(event.target);
+        if (!isClickInside)
+            calendar.classList.remove("visible");
+    });
+});
