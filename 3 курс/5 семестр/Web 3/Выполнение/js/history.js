@@ -12,7 +12,7 @@ const pages = [
 document.addEventListener('DOMContentLoaded', () => {
     var title = document.title.substring(10);
     sessionStorage.setItem(title, +sessionStorage.getItem(title) + 1);
-    setCookie(title, getCookie(title) ? +getCookie(title) + 1 : 0, 30);
+    setCookie(title, +getCookie(title) + 1, 30);
 });
 
 function getLocalStorageHistory() {
@@ -34,7 +34,7 @@ function getCookiesHistory() {
             `<tr>
             <th scope="row">${i + 1}</th>
             <td>${pages[i]}</td>
-            <td>${getCookie(pages[i])}</td>
+            <td>${getCookie(pages[i]) ? getCookie(pages[i]) : 0}</td>
         </tr>`;
     }
 }
