@@ -93,6 +93,7 @@ body {
 
 .inner-img:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
 .img-elem .photo__subtitle {
@@ -185,4 +186,52 @@ body {
 
 ::-webkit-scrollbar-thumb:active {
     background: #382650;
+}
+
+::selection {
+    background: #ae89e5;
+    color: rgb(245, 245, 245);
+}
+
+/* PHOTO */
+
+.popup image {
+    margin: 30px;
+    float: left;
+    cursor: pointer;
+    max-height: 100px;
+}
+
+.popup {
+    visibility: hidden;
+    z-index: 5;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.popup_bg {
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.popup_img {
+    top: 67px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 2;
+    max-height: 85%;
+    max-width: 94%;
+    margin: 1% 0 0 0;
+}
+
+.popup img {
+    cursor: pointer;
 }
