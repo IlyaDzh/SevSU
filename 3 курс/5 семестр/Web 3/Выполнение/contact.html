@@ -61,7 +61,7 @@
     </nav>
 
     <section class="content container">
-        <form action="">
+        <form action="" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control" id="inputFio" placeholder="Введите ваше ФИО" autocomplete="off"
                     autofocus oninput="checkFio()">
@@ -81,28 +81,28 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="inputDate" placeholder="Выберите вашу дату рождения"
-                    autocomplete="off" oninput="checkDate()">
+                    autocomplete="off" oninput="checkEmpty(document.forms[0].inputDate)">
                 <div class="invalid-feedback">
                     Необходимо заполнить поле!
                 </div>
                 <div class="calendar-wrapper" id="calendar">
                     <div class="select-block pb-2 pt-1">
-                        <select class="month">
+                        <select id="month">
                             <option selected>Месяц</option>
-                            <option>Январь</option>
-                            <option>Феварь</option>
-                            <option>Март</option>
-                            <option>Апрель</option>
+                            <option>Января</option>
+                            <option>Феваря</option>
+                            <option>Марта</option>
+                            <option>Апреля</option>
                             <option>Мая</option>
-                            <option>Июнь</option>
-                            <option>Июль</option>
-                            <option>Август</option>
-                            <option>Сентябрь</option>
-                            <option>Октябрь</option>
-                            <option>Ноябрь</option>
-                            <option>Декабь</option>
+                            <option>Июня</option>
+                            <option>Июля</option>
+                            <option>Августа</option>
+                            <option>Сентября</option>
+                            <option>Октября</option>
+                            <option>Ноября</option>
+                            <option>Декабя</option>
                         </select>
-                        <select class="years">
+                        <select id="years">
                             <option selected>Год</option>
                             <option>2019</option>
                             <option>2018</option>
@@ -129,7 +129,7 @@
                             <option>1997</option>
                             <option>1996</option>
                         </select>
-                        <input type="button" class="calendar-button" value="Ok">
+                        <input type="button" class="calendar-button" id="calendarOk" value="Ok" onclick="btnClick()">
                     </div>
 
                     <table class="calendar-content">
@@ -199,14 +199,14 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" id="inputEmail" placeholder="Введите email" autocomplete="off"
-                    oninput="checkEmail()">
+                    oninput="checkEmpty(document.forms[0].inputEmail)">
                 <div class="invalid-feedback">
                     Необходимо заполнить поле!
                 </div>
             </div>
             <div class="form-group">
                 <textarea class="form-control" id="inputText" rows="4" placeholder="Введите сообщение"
-                    oninput="checkText()"></textarea>
+                    oninput="checkEmpty(document.forms[0].inputText)"></textarea>
                 <div class="invalid-feedback">
                     Необходимо заполнить поле!
                 </div>

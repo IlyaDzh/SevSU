@@ -1,8 +1,5 @@
-// 
-//убрать это гавно
-// 
 function ValidTest() {
-    if (checkFio() && checkGroup() && checkSelect() && checkAns()) {
+    if (checkFio() && checkEmpty(document.forms[0].inputGroup) && checkSelect() && checkAns()) {
         alert("Тест отправлен!");
         return true;
     }
@@ -10,7 +7,7 @@ function ValidTest() {
 }
 
 function ValidContact() {
-    if (checkFio() && checkDate() && checkNum() && checkEmail() && checkText()) {
+    if (checkFio() && checkEmpty(document.forms[0].inputDate) && checkNum() && checkEmpty(document.forms[0].inputEmail) && checkEmpty(document.forms[0].inputText)) {
         alert("Форма отправлена!");
         return true;
     }
@@ -66,51 +63,14 @@ function checkSelect(select) {
     return true;
 }
 
-function checkGroup() {
-    var group = document.forms[0].inputGroup;
-    if (group.value == '') {
-        group.classList.add('is-invalid');
-        group.focus();
+function checkEmpty(input) {
+    if (input.value == '') {
+        input.classList.add('is-invalid');
+        input.focus();
         return false;
     }
-    group.classList.remove('is-invalid');
-    group.classList.add('is-valid');
-    return true;
-}
-
-function checkEmail() {
-    var email = document.forms[0].inputEmail;
-    if (email.value == '') {
-        email.classList.add('is-invalid');
-        email.focus();
-        return false;
-    }
-    email.classList.remove('is-invalid');
-    email.classList.add('is-valid');
-    return true;
-}
-
-function checkText() {
-    var text = document.forms[0].inputText;
-    if (text.value == '') {
-        text.classList.add('is-invalid');
-        text.focus();
-        return false;
-    }
-    text.classList.remove('is-invalid');
-    text.classList.add('is-valid');
-    return true;
-}
-
-function checkDate() {
-    var text = document.forms[0].inputDate;
-    if (text.value == '') {
-        text.classList.add('is-invalid');
-        text.focus();
-        return false;
-    }
-    text.classList.remove('is-invalid');
-    text.classList.add('is-valid');
+    input.classList.remove('is-invalid');
+    input.classList.add('is-valid');
     return true;
 }
 
@@ -128,3 +88,37 @@ calInput.addEventListener("click", () => {
             calendar.classList.remove("visible");
     });
 });
+
+var calDay = document.querySelectorAll(".calendar-content a");
+var calMonth = document.getElementById("month");
+var calYear = document.getElementById("years");
+var selectDay, selectMonth, selectYear;
+
+for (let i = 0; i < calDay.length; i++) {
+    calDay[i].addEventListener("click", () => {
+        var haveBg = document.getElementsByClassName("select-day-bg");
+        if (haveBg.length != 0) {
+            haveBg[0].childNodes[0].classList.remove("select-day");
+            haveBg[0].classList.remove("select-day-bg");
+        }
+        selectDay = calDay[i].innerHTML;
+        calDay[i].classList.add("select-day");
+        calDay[i].parentElement.classList.add("select-day-bg");
+    });
+}
+
+calMonth.addEventListener("change", () => {
+    selectMonth = calMonth.value;
+});
+
+calYear.addEventListener("change", () => {
+    selectYear = calYear.value;
+});
+
+var calButton = document.getElementById("calendarOk");
+
+function btnClick() {
+    calendar.classList.remove("visible");
+    calInput.value = `${selectDay} ${selectMonth} ${selectYear}г.`;
+    checkEmpty(document.forms[0].inputDate);
+}

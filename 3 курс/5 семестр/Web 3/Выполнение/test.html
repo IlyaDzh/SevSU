@@ -75,7 +75,7 @@
                 <div class="form-group col-md-6">
                     <label for="inputGroup">Группа</label>
                     <input type="text" class="form-control" id="inputGroup" placeholder="Введите название группы"
-                        autocomplete="off" oninput="checkGroup()">
+                        autocomplete="off" oninput="checkEmpty(document.forms[0].inputGroup)">
                     <div class="invalid-feedback">
                         Необходимо заполнить поле!
                     </div>

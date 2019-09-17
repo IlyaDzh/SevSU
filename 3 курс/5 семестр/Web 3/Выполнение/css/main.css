@@ -158,3 +158,11 @@ body {
 .calendar-button:hover {
     border-color: rgb(105, 105, 105);
 }
+
+.select-day {
+    color: white !important;
+}
+
+.select-day-bg {
+    background-color: #b390e9 !important;
+}
