@@ -166,3 +166,23 @@ body {
 .select-day-bg {
     background-color: #b390e9 !important;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e0cbff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #563d7c;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #453063;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: #382650;
+}
