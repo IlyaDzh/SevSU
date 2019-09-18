@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ilya D. | Тест</title>
+    <link rel="icon" href="img/icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color:#563d7c">
+        <div class="container">
+            <div class="timer" id="time"></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Обо мне</a>
+                    </li>
+                    <li class="nav-item dropdown" id="drop">
+                        <a class="nav-link dropdown-toggle" id="dropdown_menu" href="entertainment.html">Мои
+                            интересы</a>
+                        <ul class="dropdown-menu" id="menu-list">
+                            <li><a class="dropdown-item" href="entertainment.html#films">Фильмы</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#music">Музыка</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#books">Книги</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#race">Спорт</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#games">Игры</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="studies.html">Учеба</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="photo.html">Фотоальбом</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Контакт</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link-active" href="test.html">Тест</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">История</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content container">
+        <h2 class="mb-4">Тест по основам дискретной математики</h2>
+        <form action="">
+            <div class="form-row mb-3">
+                <div class="form-group col-md-6">
+                    <label for="inputFio">ФИО</label>
+                    <input type="text" class="form-control tooltip-input" id="inputFio"
+                        title="Фамилия Имя Отчество через пробел" placeholder="Введите ваше ФИО" autocomplete="off"
+                        autofocus oninput="checkFio()">
+                    <div class="invalid-feedback">
+                        Неверный формат ввода! Пример: Иванов Иван Иванович
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputGroup">Группа</label>
+                    <input type="text" class="form-control tooltip-input" id="inputGroup" placeholder="Введите название группы"
+                        title="Пример: ИС-32" autocomplete="off"
+                        oninput="checkEmpty(document.forms[0].inputGroup)">
+                    <div class="invalid-feedback">
+                        Необходимо заполнить поле!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="checkQ">Операции над множествами:</label>
+                <div id="checkQ">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Объединение</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                        <label class="form-check-label" for="inlineCheckbox2">Импликация</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                        <label class="form-check-label" for="inlineCheckbox3">Дополнение</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputSelect">Количество собственных подмножеств множества из пяти элементов?</label>
+                <select class="form-control" id="inputSelect" oninput="checkSelect()">
+                    <option>Выберите ответ</option>
+                    <optgroup label=">30">
+                        <option>31</option>
+                        <option>32</option>
+                        <option>33</option>
+                    </optgroup>
+                    <optgroup label="<30">
+                        <option>2</option>
+                        <option>20</option>
+                        <option>25</option>
+                        <option>28</option>
+                    </optgroup>
+                </select>
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputQ">Что такое множество?</label>
+                <input type="text" class="form-control" id="inputQ" placeholder="Введите ответ" autocomplete="off"
+                    oninput="checkAns()">
+                <div class="invalid-feedback">
+                    Пустое поле или ответ содержит цифры!
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" name="submit" onclick="return ValidTest()">Отправить</button>
+            <button class="btn btn-danger" type="button">Очистить</button>
+            <div class="modal">
+                <div class="modal__content">
+                    <p>Вы действительно хотите очистить форму?</p>
+                    <form onsubmit="return false">
+                        <button class="btn btn-outline-primary" type="reset" name="reset">Да</button>
+                        <button class="btn btn-outline-primary" type="button">Нет</button>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <div class="cover"></div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>
