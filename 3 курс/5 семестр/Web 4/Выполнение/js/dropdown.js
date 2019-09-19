@@ -1,10 +1,7 @@
-var el = document.getElementById('drop');
-var dropdownList = document.getElementById('menu-list');
-
-el.addEventListener('mouseover', () => {
-    dropdownList.classList.add('d-block');
+$("#drop").mouseover(() => {
+    $("#menu-list").addClass('d-block');
 });
 
-el.addEventListener('mouseout', () => {
-    dropdownList.classList.remove('d-block');
+$("#drop").mouseout(() => {
+    $("#menu-list").removeClass('d-block');
 });

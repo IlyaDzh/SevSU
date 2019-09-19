@@ -7,7 +7,7 @@ function curTime() {
             "августа", "сентября", "октября",
             "ноября", "декабря"
         ];
-        document.getElementById('time').innerHTML = `${time.getDate()} ${monthNames[time.getMonth()]} ${time.getFullYear()}г. ${time.toLocaleTimeString()}`;
+        $("#time").html(`${time.getDate()} ${monthNames[time.getMonth()]} ${time.getFullYear()}г. ${time.toLocaleTimeString()}`);
     }, 1000)
 }
 
