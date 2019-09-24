@@ -11,22 +11,24 @@ calInput.addEventListener("click", () => {
     });
 });
 
-var calDay = document.querySelectorAll(".calendar-content a");
 var calMonth = document.getElementById("month");
 var calYear = document.getElementById("years");
 var selectDay, selectMonth, selectYear;
 
-for (let i = 0; i < calDay.length; i++) {
-    calDay[i].addEventListener("click", () => {
-        var haveBg = document.getElementsByClassName("select-day-bg");
-        if (haveBg.length != 0) {
-            haveBg[0].childNodes[0].classList.remove("select-day");
-            haveBg[0].classList.remove("select-day-bg");
-        }
-        selectDay = calDay[i].innerHTML;
-        calDay[i].classList.add("select-day");
-        calDay[i].parentElement.classList.add("select-day-bg");
-    });
+function upateVariable() {
+    var calDay = document.querySelectorAll(".calendar-content a");
+    for (let i = 0; i < calDay.length; i++) {
+        calDay[i].addEventListener("click", () => {
+            var haveBg = document.getElementsByClassName("select-day-bg");
+            if (haveBg.length != 0) {
+                haveBg[0].childNodes[0].classList.remove("select-day");
+                haveBg[0].classList.remove("select-day-bg");
+            }
+            selectDay = calDay[i].innerHTML;
+            calDay[i].classList.add("select-day");
+            calDay[i].parentElement.classList.add("select-day-bg");
+        });
+    }
 }
 
 calMonth.addEventListener("change", () => {
@@ -37,10 +39,13 @@ calYear.addEventListener("change", () => {
     selectYear = calYear.value;
 });
 
-var calButton = document.getElementById("calendarOk");
-
 function btnClick() {
     calendar.classList.remove("visible");
-    calInput.value = `${selectDay} ${selectMonth} ${selectYear}г.`;
-    checkEmpty(document.forms[0].inputDate);
+    if (selectDay == undefined || selectMonth == undefined || selectYear == undefined || selectYear == "Год" || selectMonth == "Месяц") {
+        calInput.value = "";
+        checkEmpty(document.forms[0].inputDate);
+    } else {
+        calInput.value = `${selectDay} ${selectMonth} ${selectYear}г.`;
+        checkEmpty(document.forms[0].inputDate);
+    }
 }

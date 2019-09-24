@@ -1,3 +1,29 @@
+function ClearTest() {
+    var ans = document.forms[0].inputQ;
+    var fio = document.forms[0].inputFIO;
+    var group = document.forms[0].inputGroup;
+    var select = document.forms[0].selectQ;
+
+    ans.classList.remove('is-invalid');
+    fio.classList.remove('is-invalid');
+    group.classList.remove('is-invalid');
+    select.classList.remove('is-invalid');
+}
+
+function ClearContact() {
+    var fio = document.forms[0].inputFio;
+    var number = document.forms[0].inputNum;
+    var select = document.forms[0].inputSelect;
+    var email = document.forms[0].inputEmail;
+    var text = document.forms[0].inputText;
+
+    number.classList.remove('is-invalid');
+    fio.classList.remove('is-invalid');
+    email.classList.remove('is-invalid');
+    select.classList.remove('is-invalid');
+    text.classList.remove('is-invalid');
+}
+
 function ValidTest() {
     var ans = document.forms[0].inputQ;
     var fio = document.forms[0].inputFIO;
@@ -5,7 +31,7 @@ function ValidTest() {
     var select = document.forms[0].selectQ;
 
     if (checkFio(fio) && checkOther(group) && checkSelect(select) && checkAns(ans)) {
-        alert("Тест отправлен!");
+        // alert("Тест отправлен!");
         return true;
     }
     else return false;
@@ -29,7 +55,7 @@ function ValidContact() {
     var text = document.forms[0].inputText;
 
     if (checkFio(fio) && checkSelect(select) && checkNum(number) && checkOther(email) && checkOther(text)) {
-        alert("Форма отправлена!");
+        // alert("Форма отправлена!");
         return true;
     }
     else return false;

@@ -1,6 +1,6 @@
 $().ready(function () {
     var DelayAp = 200;
-    var DelayDis = 400;
+    var DelayDis = 800;
     var ToolTipTimerAp, ToolTipTimerDis;
     $('.tooltip-input').hover(function (e) {
         $('.wy-tooltip').remove();
@@ -17,7 +17,7 @@ $().ready(function () {
         ToolTipTimerDis = setTimeout(function (e) {
             $('.wy-tooltip').remove();
         }, DelayDis);
-    }).mousemove(function (e) {
+    }).mouseenter(function (e) {
         var pLeft;
         var pTop;
         var offset = 10;

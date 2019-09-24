@@ -1,4 +1,4 @@
-var interests = [
+var interestsList = [
     { id: "#films", text: "Фильмы" },
     { id: "#music", text: "Музыка" },
     { id: "#books", text: "Книги" },
@@ -6,6 +6,15 @@ var interests = [
     { id: "#games", text: "Игры" }
 ]
 
-for (var i = 0; i < interests.length; i++) {
-    document.writeln(`<li class='nav-item'><a class='nav-link active' href='${interests[i].id}'>${interests[i].text}</a></li>`);
+function interests(interes) {
+    var interestHtml = "";
+    for (var i = 0; i < interes.length; i++) {
+        interestHtml += `<li class='nav-item'><a class='nav-link active' href='${interes[i].id}'>${interes[i].text}</a></li>`;
+    }
+    return interestHtml;
+}
+
+function viewInterests() {
+    var view = document.getElementById("interests");
+    view.innerHTML = interests(interestsList);
 }

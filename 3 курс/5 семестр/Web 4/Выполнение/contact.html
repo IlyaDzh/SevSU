@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/viewCalendar.js"></script>
 </head>
 
 <body>
@@ -81,15 +82,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control tooltip-input" id="inputDate" placeholder="Выберите вашу дату рождения"
-                    title="Нажмите чтобы открыть календарь" autocomplete="off"
+                <input type="text" class="form-control tooltip-input" id="inputDate"
+                    placeholder="Выберите вашу дату рождения" title="Нажмите чтобы открыть календарь" autocomplete="off"
                     oninput="checkEmpty(document.forms[0].inputDate)">
                 <div class="invalid-feedback">
                     Необходимо заполнить поле!
                 </div>
                 <div class="calendar-wrapper" id="calendar">
                     <div class="select-block pb-2 pt-1">
-                        <select id="month">
+                        <select id="month" onchange="updateCalendar()">
                             <option selected>Месяц</option>
                             <option>Января</option>
                             <option>Феваря</option>
@@ -104,7 +105,7 @@
                             <option>Ноября</option>
                             <option>Декабя</option>
                         </select>
-                        <select id="years">
+                        <select id="years" onchange="updateCalendar()">
                             <option selected>Год</option>
                             <option>2019</option>
                             <option>2018</option>
@@ -146,48 +147,8 @@
                                 <th scope="col">Вс</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td><a href="#">1</a></td>
-                                <td><a href="#">2</a></td>
-                                <td><a href="#">3</a></td>
-                                <td><a href="#">4</a></td>
-                                <td><a href="#">5</a></td>
-                                <td><a href="#">6</a></td>
-                                <td><a href="#">7</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">8</a></td>
-                                <td><a href="#">9</a></td>
-                                <td><a href="#">10</a></td>
-                                <td><a href="#">11</a></td>
-                                <td><a href="#">12</a></td>
-                                <td><a href="#">13</a></td>
-                                <td><a href="#">14</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">15</a></td>
-                                <td><a href="#">16</a></td>
-                                <td><a href="#">17</a></td>
-                                <td><a href="#">18</a></td>
-                                <td><a href="#">19</a></td>
-                                <td><a href="#">20</a></td>
-                                <td><a href="#">21</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">22</a></td>
-                                <td><a href="#">23</a></td>
-                                <td><a href="#">24</a></td>
-                                <td><a href="#">25</a></td>
-                                <td><a href="#">26</a></td>
-                                <td><a href="#">27</a></td>
-                                <td><a href="#">28</a></td>
-                            </tr>
-                            <tr>
-                                <td><a href="#">29</a></td>
-                                <td><a href="#">30</a></td>
-                                <td><a href="#">31</a></td>
-                            </tr>
+                        <tbody id="tbodyCalendar">
+                            <script>viewCalendar()</script>
                         </tbody>
                     </table>
                 </div>
@@ -201,9 +162,9 @@
             </div>
             <div class="form-group">
                 <input type="text" class="form-control tooltip-input" id="inputEmail" title="Пример: ivanov@gmail.com"
-                    placeholder="Введите email" autocomplete="off" oninput="checkEmpty(document.forms[0].inputEmail)">
+                    placeholder="Введите email" autocomplete="off" oninput="checkMail()">
                 <div class="invalid-feedback">
-                    Необходимо заполнить поле!
+                    Неверный формат ввода! Пример: name@gmail.com
                 </div>
             </div>
             <div class="form-group">
@@ -220,7 +181,8 @@
                 <div class="modal__content">
                     <p>Вы действительно хотите очистить форму?</p>
                     <form onsubmit="return false">
-                        <button class="btn btn-outline-primary" type="reset" name="reset">Да</button>
+                        <button class="btn btn-outline-primary" type="reset" name="reset"
+                            onclick="ClearContact()">Да</button>
                         <button class="btn btn-outline-primary" type="button">Нет</button>
                     </form>
                 </div>

@@ -1,14 +1,49 @@
+function ClearTest() {
+    var ans = document.forms[0].inputQ;
+    var fio = document.forms[0].inputFio;
+    var group = document.forms[0].inputGroup;
+    var select = document.forms[0].inputSelect;
+
+    ans.classList.remove('is-invalid');
+    fio.classList.remove('is-invalid');
+    group.classList.remove('is-invalid');
+    select.classList.remove('is-invalid');
+    ans.classList.remove('is-valid');
+    fio.classList.remove('is-valid');
+    group.classList.remove('is-valid');
+    select.classList.remove('is-valid');
+}
+
+function ClearContact() {
+    var fio = document.forms[0].inputFio;
+    var number = document.forms[0].inputNum;
+    var date = document.forms[0].inputDate;
+    var email = document.forms[0].inputEmail;
+    var text = document.forms[0].inputText;
+
+    number.classList.remove('is-invalid');
+    fio.classList.remove('is-invalid');
+    email.classList.remove('is-invalid');
+    date.classList.remove('is-invalid');
+    text.classList.remove('is-invalid');
+    number.classList.remove('is-valid');
+    fio.classList.remove('is-valid');
+    email.classList.remove('is-valid');
+    date.classList.remove('is-valid');
+    text.classList.remove('is-valid');
+}
+
 function ValidTest() {
     if (checkFio() && checkEmpty(document.forms[0].inputGroup) && checkSelect() && checkAns()) {
-        alert("Тест отправлен!");
+        // alert("Тест отправлен!");
         return true;
     }
     else return false;
 }
 
 function ValidContact() {
-    if (checkFio() && checkEmpty(document.forms[0].inputDate) && checkNum() && checkEmpty(document.forms[0].inputEmail) && checkEmpty(document.forms[0].inputText)) {
-        alert("Форма отправлена!");
+    if (checkFio() && checkEmpty(document.forms[0].inputDate) && checkNum() && checkMail() && checkEmpty(document.forms[0].inputText)) {
+        // alert("Форма отправлена!");
         return true;
     }
     else return false;
@@ -23,6 +58,18 @@ function checkAns() {
     }
     ans.classList.remove('is-invalid');
     ans.classList.add('is-valid');
+    return true;
+}
+
+function checkMail() {
+    var email = document.forms[0].inputEmail;
+    if (!email.value.match(/[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,5}/i) || email.value == '') {
+        email.classList.add('is-invalid');
+        email.focus();
+        return false;
+    }
+    email.classList.remove('is-invalid');
+    email.classList.add('is-valid');
     return true;
 }
 
