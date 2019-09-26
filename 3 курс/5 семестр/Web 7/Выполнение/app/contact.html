@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ilya D. | Контакт</title>
+    <link rel="icon" href="img/icon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/viewCalendar.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <div class="timer" id="time"></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1"
+                aria-controls="navbar1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar1">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Обо мне</a>
+                    </li>
+                    <li class="nav-item dropdown" id="drop">
+                        <a class="nav-link dropdown-toggle" id="dropdown_menu" href="entertainment.html">Мои
+                            интересы</a>
+                        <ul class="dropdown-menu" id="menu-list">
+                            <li><a class="dropdown-item" href="entertainment.html#films">Фильмы</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#music">Музыка</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#books">Книги</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#race">Спорт</a></li>
+                            <li><a class="dropdown-item" href="entertainment.html#games">Игры</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="studies.html">Учеба</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="photo.html">Фотоальбом</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link-active" href="contact.html">Контакт</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="test.html">Тест</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="history.html">История</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="content container">
+        <form action="">
+            <div class="form-group">
+                <input type="text" class="form-control tooltip-input" id="inputFio"
+                    title="Фамилия Имя Отчество через пробел" placeholder="Введите ваше ФИО" autocomplete="off"
+                    autofocus oninput="checkFio()">
+                <div class="invalid-feedback">
+                    Неверный формат ввода! Пример: Иванов Иван Иванович
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios1" value="option1" checked>
+                    <label class="form-check-label" for="Radios1">Мужчина</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Radios" id="Radios2" value="option2">
+                    <label class="form-check-label" for="Radios2">Женщина</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control tooltip-input" id="inputDate"
+                    placeholder="Выберите вашу дату рождения" title="Нажмите чтобы открыть календарь" autocomplete="off"
+                    oninput="checkEmpty(document.forms[0].inputDate)">
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+                <div class="calendar-wrapper" id="calendar">
+                    <div class="select-block pb-2 pt-1">
+                        <select id="month" onchange="updateCalendar()">
+                            <option selected>Месяц</option>
+                            <option>Января</option>
+                            <option>Феваря</option>
+                            <option>Марта</option>
+                            <option>Апреля</option>
+                            <option>Мая</option>
+                            <option>Июня</option>
+                            <option>Июля</option>
+                            <option>Августа</option>
+                            <option>Сентября</option>
+                            <option>Октября</option>
+                            <option>Ноября</option>
+                            <option>Декабя</option>
+                        </select>
+                        <select id="years" onchange="updateCalendar()">
+                            <option selected>Год</option>
+                            <option>2019</option>
+                            <option>2018</option>
+                            <option>2017</option>
+                            <option>2016</option>
+                            <option>2015</option>
+                            <option>2014</option>
+                            <option>2013</option>
+                            <option>2012</option>
+                            <option>2011</option>
+                            <option>2010</option>
+                            <option>2009</option>
+                            <option>2008</option>
+                            <option>2007</option>
+                            <option>2006</option>
+                            <option>2005</option>
+                            <option>2004</option>
+                            <option>2003</option>
+                            <option>2002</option>
+                            <option>2001</option>
+                            <option>2000</option>
+                            <option>1999</option>
+                            <option>1998</option>
+                            <option>1997</option>
+                            <option>1996</option>
+                        </select>
+                        <input type="button" class="calendar-button" value="Ok" onclick="btnClick()">
+                    </div>
+
+                    <table class="calendar-content">
+                        <thead>
+                            <tr>
+                                <th scope="col">Пн</th>
+                                <th scope="col">Вт</th>
+                                <th scope="col">Ср</th>
+                                <th scope="col">Чт</th>
+                                <th scope="col">Пт</th>
+                                <th scope="col">Сб</th>
+                                <th scope="col">Вс</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyCalendar">
+                            <script>viewCalendar()</script>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control tooltip-input" id="inputNum" title="Пример: +79781234567"
+                    placeholder="Введите номер телефона" autocomplete="off" oninput="checkNum()">
+                <div class="invalid-feedback">
+                    Неверный формат ввода!
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control tooltip-input" id="inputEmail" title="Пример: ivanov@gmail.com"
+                    placeholder="Введите email" autocomplete="off" oninput="checkMail()">
+                <div class="invalid-feedback">
+                    Неверный формат ввода! Пример: name@gmail.com
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="inputText" rows="4" placeholder="Введите сообщение"
+                    oninput="checkEmpty(document.forms[0].inputText)"></textarea>
+                <div class="invalid-feedback">
+                    Необходимо заполнить поле!
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" name="submit"
+                onclick="return ValidContact()">Отправить</button>
+            <button class="btn btn-danger" type="button">Очистить</button>
+            <div class="modal">
+                <div class="modal__content">
+                    <p>Вы действительно хотите очистить форму?</p>
+                    <form onsubmit="return false">
+                        <button class="btn btn-outline-primary" type="reset" name="reset"
+                            onclick="ClearContact()">Да</button>
+                        <button class="btn btn-outline-primary" type="button">Нет</button>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <div class="cover"></div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/calendar.js"></script>
+    <script src="js/time.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/popover.js"></script>
+    <script src="js/modal.js"></script>
+</body>
+
+</html>
