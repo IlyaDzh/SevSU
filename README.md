@@ -1,1 +1,1 @@
-# SevGU
+# SevSU
