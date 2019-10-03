@@ -1,0 +1,106 @@
+<?php 
+    $title = 'Ilya D. | Контакт';
+    include 'header.php'
+?>
+
+%script(src="js/viewCalendar.js")
+
+%section.content.container
+    %form(action="")
+        .form-group
+            %input#inputFio.form-control.tooltip-input(autocomplete="off" autofocus="true" oninput="checkFio()" placeholder="Введите ваше ФИО" title="Фамилия Имя Отчество через пробел" type="text")/
+            .invalid-feedback Неверный формат ввода! Пример: Иванов Иван Иванович
+        .form-group
+            .form-check.form-check-inline
+                %input#Radios1.form-check-input(checked="checked" name="Radios" type="radio" value="option1")/
+                %label.form-check-label(for="Radios1") Мужчина
+            .form-check.form-check-inline
+                %input#Radios2.form-check-input(name="Radios" type="radio" value="option2")/
+                %label.form-check-label(for="Radios2") Женщина
+        .form-group
+            %input#inputDate.form-control.tooltip-input(autocomplete="off" oninput="checkEmpty(document.forms[0].inputDate)" placeholder="Выберите вашу дату рождения" title="Нажмите чтобы открыть календарь" type="text")/
+            .invalid-feedback Необходимо заполнить поле!
+            #calendar.calendar-wrapper
+                .select-block.pb-2.pt-1
+                    %select#month(onchange="updateCalendar()")
+                        %option(selected="selected") Месяц
+                        %option Января
+                        %option Феваря
+                        %option Марта
+                        %option Апреля
+                        %option Мая
+                        %option Июня
+                        %option Июля
+                        %option Августа
+                        %option Сентября
+                        %option Октября
+                        %option Ноября
+                        %option Декабя
+                    %select#years(onchange="updateCalendar()")
+                        %option(selected="selected") Год
+                        %option 2019
+                        %option 2018
+                        %option 2017
+                        %option 2016
+                        %option 2015
+                        %option 2014
+                        %option 2013
+                        %option 2012
+                        %option 2011
+                        %option 2010
+                        %option 2009
+                        %option 2008
+                        %option 2007
+                        %option 2006
+                        %option 2005
+                        %option 2004
+                        %option 2003
+                        %option 2002
+                        %option 2001
+                        %option 2000
+                        %option 1999
+                        %option 1998
+                        %option 1997
+                        %option 1996
+                        %input.calendar-button(onclick="btnClick()" type="button" value="Ok")/
+                    %table.calendar-content
+                        %thead
+                            %tr
+                                %th(scope="col") Пн
+                                %th(scope="col") Вт
+                                %th(scope="col") Ср
+                                %th(scope="col") Чт
+                                %th(scope="col") Пт
+                                %th(scope="col") Сб
+                                %th(scope="col") Вс
+                        %tbody#tbodyCalendar
+                            :javascript
+                                viewCalendar()
+        .form-group
+            %input#inputNum.form-control.tooltip-input(autocomplete="off" oninput="checkNum()" placeholder="Введите номер телефона" title="Пример: +79781234567" type="text")/
+            .invalid-feedback Неверный формат ввода!
+        .form-group
+            %input#inputEmail.form-control.tooltip-input(autocomplete="off" oninput="checkMail()" placeholder="Введите email" title="Пример: ivanov@gmail.com" type="text")/
+            .invalid-feedback Неверный формат ввода! Пример: name@gmail.com
+        .form-group
+            %textarea#inputText.form-control(oninput="checkEmpty(document.forms[0].inputText)" placeholder="Введите сообщение" rows="4")
+            .invalid-feedback Необходимо заполнить поле!
+        %button.btn.btn-primary.mr-1(name="submit" onclick="return ValidContact()" type="submit") Отправить
+        %button.btn.btn-danger(type="button") Очистить
+        .modal
+            .modal__content
+                %p Вы действительно хотите очистить форму?
+                %form(onsubmit="return false")
+                    %button.btn.btn-outline-primary.mr-1(name="reset" onclick="ClearContact()" type="reset") Да
+                    %button.btn.btn-outline-primary(type="button") Нет
+
+.cover
+
+%script(src="js/jquery-3.4.1.min.js")
+%script(src="js/history.js")
+%script(src="js/time.js")
+%script(src="js/dropdown.js")
+%script(src="js/calendar.js")
+%script(src="js/forms.js")
+%script(src="js/popover.js")
+%script(src="js/modal.js")

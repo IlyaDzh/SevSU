@@ -1,0 +1,33 @@
+<?php 
+    $title = 'Ilya D. | История';
+    include 'header.php'
+?>
+
+%script(src="js/history.js")
+
+%section.container.content
+    %h4 История текущего сеанса
+    %table#localStorageTable.table.table-sm.table-hover
+        %thead.thead-light
+            %tr
+                %th(scope="col") №
+                %th(scope="col") Страница
+                %th(scope="col") Посещений
+        %tbody
+        :javascript
+            getLocalStorageHistory();
+    %h4.mt-4 История за все время
+    %table#cookieTable.table.table-sm.table-hover
+        %thead.thead-light
+            %tr
+                %th(scope="col") №
+                %th(scope="col") Страница
+                %th(scope="col") Посещений
+        %tbody
+        :javascript
+            getCookiesHistory();
+
+
+%script(src="js/jquery-3.4.1.min.js")
+%script(src="js/time.js")
+%script(src="js/dropdown.js")

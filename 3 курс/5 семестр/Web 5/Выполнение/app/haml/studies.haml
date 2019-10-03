@@ -1,0 +1,82 @@
+<?php 
+    $title = 'Ilya D. | Учеба';
+    include 'header.php'
+?>
+
+%section.content.container
+    .place
+        %h3.place__title Место обучения
+        %p.place__desc
+            Севастопольский государственный университет
+            %br/
+            Институт информационных технологий и управления в технических системах
+            %br/
+            Кафедра информационных систем и технологий
+    .subject
+        %h3.subject__title.mt-4 Пройденные дисциплины
+        %table.table.table-sm
+            %thead.thead-light
+                %tr
+                    %th(scope="col") Семестр
+                    %th(scope="col") Дисциплина
+                    %th(scope="col") Количество часов
+            %tbody
+                %tr
+                    %th(rowspan="4" scope ="row") 1
+                    %td Высшая математика
+                    %td 216
+                %tr
+                    %td Информатика
+                    %td 144
+                %tr
+                    %td История
+                    %td 108
+                %tr
+                    %td АиП
+                    %td 108
+                %tr
+                    %th(rowspan="4" scope ="row") 2
+                    %td Философия
+                    %td 108
+                %tr
+                    %td Высшая математика
+                    %td 180
+                %tr
+                    %td Физика
+                    %td 180
+                %tr
+                    %td АиП
+                    %td 108
+                %tr
+                    %th(rowspan="4" scope ="row") 3
+                    %td
+                        %a(href="test.html") Дискретная математика
+                    %td 108
+                %tr
+                    %td Высшая математика
+                    %td 144
+                %tr
+                    %td Архитектура компьютерных систем
+                    %td 144
+                %tr
+                    %td ООП
+                    %td 144
+                %tr
+                    %th(rowspan="4" scope="row") 4
+                    %td Основы теории алгоритмов
+                    %td 108
+                %tr
+                    %td Теория вероятностей
+                    %td 144
+                %tr
+                    %td Электроника
+                    %td 144
+                %tr
+                    %td Английский язык
+                    %td 108
+
+
+%script(src="js/jquery-3.4.1.min.js")
+%script(src="js/history.js")
+%script(src="js/time.js")
+%script(src="js/dropdown.js")

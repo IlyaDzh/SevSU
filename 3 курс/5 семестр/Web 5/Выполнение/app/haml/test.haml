@@ -1,0 +1,66 @@
+<?php 
+    $title = 'Ilya D. | Тест';
+    include 'header.php'
+?>
+
+%section.content.container
+    %h2.mb-4 Тест по основам дискретной математики
+    %form
+        .form-row.mb-3
+            .form-group.col-md-6
+                %label(for="inputFio") ФИО
+                %input#inputFio.form-control.tooltip-input(autocomplete="off" autofocus="true" oninput="checkFio()" placeholder="Введите ваше ФИО" title="Фамилия Имя Отчество через пробел" type="text")/
+                .invalid-feedback Неверный формат ввода! Пример: Иванов Иван Иванович
+            .form-group.col-md-6
+                %label(for="inputGroup") Группа
+                %input#inputGroup.form-control.tooltip-input(autocomplete="off" oninput="checkEmpty(document.forms[0].inputGroup)" placeholder="Введите название группы" title="Пример: ИС-32" type="text")/
+                .invalid-feedback Необходимо заполнить поле!
+        .form-group
+            %label(for="checkQ") Операции над множествами:
+            #checkQ
+                .form-check
+                    %input#inlineCheckbox1.form-check-input(type="checkbox" value="option1")/
+                    %label.form-check-label(for="inlineCheckbox1") Объединение
+                .form-check
+                    %input#inlineCheckbox2.form-check-input(type="checkbox" value="option2")/
+                    %label.form-check-label(for="inlineCheckbox2") Импликация
+                .form-check
+                    %input#inlineCheckbox3.form-check-input(type="checkbox" value="option3")/
+                    %label.form-check-label(for="inlineCheckbox3") Дополнение
+        .form-group
+            %label(for="inputSelect") Количество собственных подмножеств множества из пяти элементов?
+            %select#inputSelect.form-control(oninput="checkSelect()")
+                %option Выберите ответ
+                %optgroup(label=">30")
+                %option 31
+                %option 32
+                %option 33
+                %optgroup(label="<30")
+                %option 2
+                %option 20
+                %option 25
+                %option 28
+        .invalid-feedback Необходимо заполнить поле!
+        .form-group
+            %label(for="inputQ") Что такое множество?
+            %input#inputQ.form-control(autocomplete="off" oninput="checkAns()" placeholder="Введите ответ" type="text")/
+            .invalid-feedback Пустое поле или ответ содержит цифры!
+        %button.btn.btn-primary.mr-1(name="submit" onclick="return ValidTest()" type="submit") Отправить
+        %button.btn.btn-danger(type="button") Очистить
+        .modal
+            .modal__content
+                %p Вы действительно хотите очистить форму?
+                %form(onsubmit="return false")
+                    %button.btn.btn-outline-primary.mr-1(name="reset" onclick="ClearTest()" type="reset") Да
+                    %button.btn.btn-outline-primary(type="button") Нет
+
+
+.cover
+
+%script(src="js/jquery-3.4.1.min.js")
+%script(src="js/history.js")
+%script(src="js/time.js")
+%script(src="js/dropdown.js")
+%script(src="js/forms.js")
+%script(src="js/popover.js")
+%script(src="js/modal.js")

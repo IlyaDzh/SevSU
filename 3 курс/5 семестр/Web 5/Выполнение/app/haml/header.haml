@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+%html(lang="ru")
+    %head
+        %meta(charset="UTF-8")/
+        %meta(name="viewport" content="width=device-width, initial-scale=1.0")/
+        %meta(http-equiv="X-UA-Compatible" content="ie=edge")/
+        %title 
+            <?php echo $title ?>
+        %link(href="img/icon.ico" rel="icon")/
+        %link(href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700&display=swap" rel="stylesheet")/
+        %link(href="css/bootstrap.min.css" rel="stylesheet")/
+        %link(href="css/main.css" rel="stylesheet")/
+    %body
+        %nav.navbar.navbar-expand-lg.navbar-dark.sticky-top(style="background-color:#563d7c")
+            .container
+                #time.timer
+                %button.navbar-toggler(type="button")
+                    %span.navbar-toggler-icon
+                #navbar1.collapse.navbar-collapse
+                    %ul.navbar-nav.ml-auto
+                        %li.nav-item
+                            %a.nav-link(href="index.php") Главная
+                        %li.nav-item
+                            %a.nav-link(href="about.php") Обо мне
+                        %li#drop.nav-item.dropdown
+                            %a#dropdown_menu.nav-link.dropdown-toggle(href="entertainment.php") Мои интересы
+                            %ul#menu-list.dropdown-menu
+                                %li
+                                    %a.dropdown-item(href="entertainment.php#films") Фильмы
+                                %li
+                                    %a.dropdown-item(href="entertainment.php#music") Музыка
+                                %li
+                                    %a.dropdown-item(href="entertainment.php#books") Книги
+                                %li
+                                    %a.dropdown-item(href="entertainment.php#race") Спорт
+                                %li
+                                    %a.dropdown-item(href="entertainment.php#games") Игры
+                        %li.nav-item
+                            %a.nav-link(href="studies.php") Учеба
+                        %li.nav-item
+                            %a.nav-link(href="photo.php") Фотоальбом
+                        %li.nav-item
+                            %a.nav-link(href="contact.php") Контакт
+                        %li.nav-item
+                            %a.nav-link(href="test.php") Тест
+                        %li.nav-item
+                            %a.nav-link(href="history.php") История
