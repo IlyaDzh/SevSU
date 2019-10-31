@@ -1,0 +1,6 @@
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 3\ConsoleApp3\bin\Debug\ConsoleApp3.exe.config
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 3\ConsoleApp3\bin\Debug\ConsoleApp3.exe
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 3\ConsoleApp3\bin\Debug\ConsoleApp3.pdb
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 3\ConsoleApp3\obj\Debug\ConsoleApp3.csprojAssemblyReference.cache
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 3\ConsoleApp3\obj\Debug\ConsoleApp3.exe
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 3\ConsoleApp3\obj\Debug\ConsoleApp3.pdb
