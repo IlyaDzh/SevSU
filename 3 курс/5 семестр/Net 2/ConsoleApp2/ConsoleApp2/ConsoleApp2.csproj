@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AExam.cs" />
     <Compile Include="Exam.cs" />
-    <Compile Include="GroupIS32.cs" />
+    <Compile Include="ValueException.cs" />
+    <Compile Include="IVisitable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,3 +4,9 @@ C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 
 C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.csproj.CoreCompileInputs.cache
 C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.exe
 C:\Users\Пользователь\Desktop\SevGU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.pdb
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\bin\Release\ConsoleApp2.exe.config
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\bin\Release\ConsoleApp2.exe
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\bin\Release\ConsoleApp2.pdb
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.csprojAssemblyReference.cache
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.exe
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\Net 2\ConsoleApp2\ConsoleApp2\obj\Release\ConsoleApp2.pdb

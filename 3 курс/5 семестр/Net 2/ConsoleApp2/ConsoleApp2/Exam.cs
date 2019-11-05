@@ -1,54 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    public enum Mark
+    class Exam : AExam, IVisitable
     {
-        Excellent,
-        Good,
-        Satisfactory,
-        Bad
-    }
+        private int visits = 0;
 
-    public abstract class Exam
-    {
-        protected string fio { get; set; }
-        protected int date { get; set; }
-        protected int score { get; set; }
-        protected Mark mark { get; set; }
-        protected string questions { get; set; }
-
-        public void setMark(Mark mark)
+        private string professor;
+        public string Professor
         {
-            this.mark = mark;
+            get { return professor; }
+            set { if (professor != "") professor = value; }
         }
 
-        public virtual void setAll()
+        public Exam(string fullName, string date, int mark, string professor) : base(fullName, date, mark)
         {
-            try
-            {
-                Console.Write("FIO: ");
-                fio = Console.ReadLine();
-
-                Console.Write("Date: ");
-                date = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("Score: ");
-                score = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("Questions: ");
-                questions = Console.ReadLine();
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("\nExeption. Retry enter data again\n");
-                setAll();
-            }
-
+            this.professor = professor;
         }
+
+        new public void Print()
+        {
+            Console.WriteLine($"Студент: {FullName} | Дата: {Date} | Оценка: {Mark}");
+            base.PrintQuestions();
+        }
+
+        public override void PrintInfo()
+        {
+            Console.WriteLine($"Преподователь: {professor} | Посещений: {visits}");
+        }
+
+        public void Visit(int visits)
+        {
+            this.visits = visits;
+        }
+
+        public int GetVisits()
+        {
+            return visits;
+        }
+
     }
 }
