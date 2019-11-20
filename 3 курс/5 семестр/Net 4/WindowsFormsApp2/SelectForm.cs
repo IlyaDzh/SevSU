@@ -6,7 +6,6 @@ namespace WindowsFormsApp2
 {
     public partial class SelectForm : Form
     {
-        public Exam Result;
         public List<Exam> results = new List<Exam>();
         private readonly Table _active;
 
@@ -31,7 +30,8 @@ namespace WindowsFormsApp2
                        _active.DataGridView.Rows[i].Cells[1].Value.ToString(),
                        Convert.ToDateTime(_active.DataGridView.Rows[i].Cells[2].Value),
                        Convert.ToInt32(_active.DataGridView.Rows[i].Cells[3].Value),
-                       _active.DataGridView.Rows[i].Cells[4].Value.ToString()
+                       _active.DataGridView.Rows[i].Cells[4].Value.ToString(),
+                       _active.DataGridView.Rows[i].Cells[5].Value.ToString()
                     );
                     results.Add(Result);
                 }

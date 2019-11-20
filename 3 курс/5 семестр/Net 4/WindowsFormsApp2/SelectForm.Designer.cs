@@ -38,14 +38,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // selectButton
             // 
             this.selectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.selectButton.Location = new System.Drawing.Point(100, 295);
+            this.selectButton.Location = new System.Drawing.Point(100, 277);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(109, 34);
             this.selectButton.TabIndex = 21;
@@ -56,7 +54,7 @@
             // questionsTextBox
             // 
             this.questionsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.questionsTextBox.Location = new System.Drawing.Point(95, 145);
+            this.questionsTextBox.Location = new System.Drawing.Point(95, 115);
             this.questionsTextBox.Multiline = true;
             this.questionsTextBox.Name = "questionsTextBox";
             this.questionsTextBox.Size = new System.Drawing.Size(201, 118);
@@ -66,7 +64,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(12, 145);
+            this.label4.Location = new System.Drawing.Point(12, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 18);
             this.label4.TabIndex = 19;
@@ -75,7 +73,7 @@
             // markTextBox
             // 
             this.markTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.markTextBox.Location = new System.Drawing.Point(95, 103);
+            this.markTextBox.Location = new System.Drawing.Point(95, 73);
             this.markTextBox.Name = "markTextBox";
             this.markTextBox.Size = new System.Drawing.Size(201, 24);
             this.markTextBox.TabIndex = 18;
@@ -84,7 +82,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 103);
+            this.label3.Location = new System.Drawing.Point(12, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 18);
             this.label3.TabIndex = 17;
@@ -126,32 +124,12 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Фамилия:";
             // 
-            // dateTextBox
-            // 
-            this.dateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateTextBox.Location = new System.Drawing.Point(95, 73);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(201, 24);
-            this.dateTextBox.TabIndex = 23;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(12, 73);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 18);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Дата:";
-            // 
             // SelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(308, 341);
-            this.Controls.Add(this.dateTextBox);
-            this.Controls.Add(this.label5);
+            this.ClientSize = new System.Drawing.Size(308, 323);
             this.Controls.Add(this.selectButton);
             this.Controls.Add(this.questionsTextBox);
             this.Controls.Add(this.label4);
@@ -182,7 +160,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox dateTextBox;
-        private System.Windows.Forms.Label label5;
     }
 }

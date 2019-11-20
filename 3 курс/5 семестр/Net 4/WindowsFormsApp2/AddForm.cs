@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2
@@ -6,10 +7,25 @@ namespace WindowsFormsApp2
     public partial class AddForm : Form
     {
         public Exam Result;
+        public string imageName;
 
         public AddForm()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                imageName = dialog.FileName;
+                try
+                {
+                    pictureBox.Image = Image.FromFile(imageName);
+                }
+                catch (OutOfMemoryException) { return; }
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -20,6 +36,12 @@ namespace WindowsFormsApp2
                 questionsTextBox.Text == "")
             {
                 MessageBox.Show("Необходимо заполнить все поля!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (pictureBox.Image == null)
+            {
+                MessageBox.Show("Вставьте картинку!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -45,7 +67,8 @@ namespace WindowsFormsApp2
                 lastNameTextBox.Text,
                 DateTime.Now,
                 Convert.ToInt32(markTextBox.Text),
-                questionsTextBox.Text
+                questionsTextBox.Text,
+                imageName
             );
 
             DialogResult = DialogResult.OK;

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp2
@@ -6,6 +7,7 @@ namespace WindowsFormsApp2
     public partial class EditForm : Form
     {
         public Exam Result;
+        public string imageName;
 
         public EditForm(Exam main)
         {
@@ -15,6 +17,23 @@ namespace WindowsFormsApp2
             lastNameTextBox.Text = main.LastName;
             markTextBox.Text = main.Mark.ToString();
             questionsTextBox.Text = main.Questions;
+            pictureBox.Image = Image.FromFile(main.Photo);
+            pictureBox.ImageLocation = main.Photo;
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                imageName = dialog.FileName;
+                try
+                {
+                    pictureBox.Image = Image.FromFile(imageName);
+                    pictureBox.ImageLocation = imageName;
+                }
+                catch (OutOfMemoryException) { return; }
+            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
@@ -50,7 +69,8 @@ namespace WindowsFormsApp2
                 lastNameTextBox.Text,
                 DateTime.Now,
                 Convert.ToInt32(markTextBox.Text),
-                questionsTextBox.Text
+                questionsTextBox.Text,
+                pictureBox.ImageLocation
             );
 
             DialogResult = DialogResult.OK;
