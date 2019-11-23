@@ -1,0 +1,6 @@
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 4\ConsoleApp4\bin\Release\ConsoleApp4.exe.config
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 4\ConsoleApp4\bin\Release\ConsoleApp4.exe
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 4\ConsoleApp4\bin\Release\ConsoleApp4.pdb
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 4\ConsoleApp4\obj\Release\ConsoleApp4.csprojAssemblyReference.cache
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 4\ConsoleApp4\obj\Release\ConsoleApp4.exe
+C:\Users\Пользователь\Desktop\SevSU\3 курс\5 семестр\ТПО 4\ConsoleApp4\obj\Release\ConsoleApp4.pdb
