@@ -10,22 +10,20 @@ switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         $result = $rent->getAll(array(
             "id" => intval($_GET["id"]),
-            "name" => $_GET["name"],
-            "category" => $_GET["category"],
-            "publish" => $_GET["publish"],
-            "date_create" => $_GET["date_create"],
-            "number_pages" => intval($_GET["number_pages"])
+            "books" => $_GET["books"],
+            "readers" => $_GET["readers"],
+            "date_rent" => $_GET["date_rent"],
+            "date_return" => $_GET["date_return"]
         ));
         break;
 
     case "POST":
         $result = $rent->insert(array(
             "id" => intval($_POST["id"]),
-            "name" => $_POST["name"],
-            "category" => $_POST["category"],
-            "publish" => $_POST["publish"],
-            "date_create" => $_POST["date_create"],
-            "number_pages" => intval($_POST["number_pages"])
+            "books" => $_POST["books"],
+            "readers" => $_POST["readers"],
+            "date_rent" => $_POST["date_rent"],
+            "date_return" => $_POST["date_return"]
         ));
         break;
 
@@ -34,11 +32,10 @@ switch($_SERVER["REQUEST_METHOD"]) {
 
         $result = $rent->update(array(
             "id" => intval($_PUT["id"]),
-            "name" => $_PUT["name"],
-            "category" => $_PUT["category"],
-            "publish" => $_PUT["publish"],
-            "date_create" => $_PUT["date_create"],
-            "number_pages" => intval($_PUT["number_pages"])
+            "books" => $_PUT["books"],
+            "readers" => $_PUT["readers"],
+            "date_rent" => $_PUT["date_rent"],
+            "date_return" => $_PUT["date_return"]
         ));
         break;
 

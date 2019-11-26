@@ -44,10 +44,20 @@ $(function () {
         },
         fields: [
             { name: "id", title: "ID", type: "number", width: 20 },
-            { name: "books", title: "Книга", type: "text", width: 115, validate: "required" },
-            { name: "readers", title: "Читатели", type: "text", width: 115, validate: "required" },
-            { name: "date_rent", title: "Дата выдачи", type: "text", width: 115, validate: "required" },
-            { name: "date_return", title: "Дата возврата", type: "text", width: 55, validate: "required" },
+            { name: "books", title: "Книга", type: "text", width: 150, validate: "required" },
+            { name: "readers", title: "Читатель", type: "text", width: 150, validate: "required" },
+            {
+                name: "date_rent", title: "Дата выдачи", type: "text", width: 70,
+                validate: function (value, item) {
+                    return /^(19[0-9]{2}|2[0-9]{3})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/.test(value);
+                }
+            },
+            {
+                name: "date_return", title: "Дата возврата", type: "text", width: 70,
+                validate: function (value, item) {
+                    return /^(19[0-9]{2}|2[0-9]{3})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/.test(value);
+                }
+            },
             { type: "control" }
         ]
     });
