@@ -12,6 +12,11 @@ $(function () {
         pageSize: 9,
         pageButtonCount: 5,
         deleteConfirm: "Вы действительно хотите удалить автора?",
+        pagerFormat: "Страница: {first} {prev} {pages} {next} {last}    {pageIndex} из {pageCount}",
+        pagePrevText: "Предыдущая",
+        pageNextText: "Следующая",
+        pageFirstText: "Первая",
+        pageLastText: "Последняя",
         controller: {
             loadData: function (filter) {
                 return $.ajax({
@@ -43,8 +48,8 @@ $(function () {
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 10 },
-            { name: "name", title: "ФИО", type: "text", width: 150, validate: "required" },
+            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "name", title: "ФИО", type: "text", width: 350, validate: "required" },
             { type: "control" }
         ]
     });

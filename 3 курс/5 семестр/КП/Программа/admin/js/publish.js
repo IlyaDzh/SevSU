@@ -11,45 +11,46 @@ $(function () {
         autoload: true,
         pageSize: 9,
         pageButtonCount: 5,
-        deleteConfirm: "Вы действительно хотите удалить книгу?",
+        deleteConfirm: "Вы действительно хотите удалить издательство?",
+        pagerFormat: "Страница: {first} {prev} {pages} {next} {last}    {pageIndex} из {pageCount}",
+        pagePrevText: "Предыдущая",
+        pageNextText: "Следующая",
+        pageFirstText: "Первая",
+        pageLastText: "Последняя",
         controller: {
             loadData: function (filter) {
                 return $.ajax({
                     type: "GET",
-                    url: "/pages/books/",
+                    url: "/pages/publish/",
                     data: filter
                 });
             },
             insertItem: function (item) {
                 return $.ajax({
                     type: "POST",
-                    url: "/pages/books/",
+                    url: "/pages/publish/",
                     data: item
                 });
             },
             updateItem: function (item) {
                 return $.ajax({
                     type: "PUT",
-                    url: "/pages/books/",
+                    url: "/pages/publish/",
                     data: item
                 });
             },
             deleteItem: function (item) {
                 return $.ajax({
                     type: "DELETE",
-                    url: "/pages/books/",
+                    url: "/pages/publish/",
                     data: item
                 });
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 30 },
-            { name: "name", title: "Название книги", type: "text", width: 110, validate: "required" },
-            { name: "authors", title: "Авторы", type: "text", width: 100, validate: "required" },
-            { name: "categories", title: "Направление", type: "text", width: 130, validate: "required" },
-            { name: "publish", title: "Издательство", type: "text", width: 60, validate: "required" },
-            { name: "date_create", title: "Дата издания", type: "text", width: 40, validate: "required" },
-            { name: "number_pages", title: "Количество страниц", type: "number", width: 60, validate: "required" },
+            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "name", title: "Название", type: "text", width: 175, validate: "required" },
+            { name: "address", title: "Адрес", type: "text", width: 175, validate: "required" },
             { type: "control" }
         ]
     });
