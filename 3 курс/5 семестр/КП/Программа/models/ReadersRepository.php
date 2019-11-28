@@ -33,11 +33,11 @@ class ReadersRepository {
         $id = $filter["id"];
         $name = "%" . $filter["name"] . "%";
         $date = "%" . $filter["date"] . "%";
-        $gender = "%" . $filter["gender"] . "%";
+        $gender = $filter["gender"];
         $tel = "%" . $filter["tel"] . "%";
         $address = "%" . $filter["address"] . "%";
 
-        $sql = "SELECT * FROM читатели WHERE (:id = 0 OR id_читателя = :id) AND фио LIKE :name AND дата_рождения LIKE :date AND (:gender = 0 OR пол = :gender) AND телефон LIKE :tel AND адрес LIKE :address";
+        $sql = "SELECT * FROM читатели WHERE (:id = 0 OR id_читателя = :id) AND фио LIKE :name AND дата_рождения LIKE :date AND (:gender = '' OR пол = :gender) AND телефон LIKE :tel AND адрес LIKE :address";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
         $q->bindParam(":name", $name);

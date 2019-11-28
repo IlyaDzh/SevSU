@@ -10,14 +10,18 @@ switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         $result = $authors->getAll(array(
             "id" => intval($_GET["id"]),
-            "name" => $_GET["name"]
+            "name" => $_GET["name"],
+            "degree" => $_GET["degree"],
+            "date" => $_GET["date"]
         ));
         break;
 
     case "POST":
         $result = $authors->insert(array(
             "id" => intval($_POST["id"]),
-            "name" => $_POST["name"]
+            "name" => $_POST["name"],
+            "degree" => $_POST["degree"],
+            "date" => $_POST["date"]
         ));
         break;
 
@@ -26,7 +30,9 @@ switch($_SERVER["REQUEST_METHOD"]) {
 
         $result = $authors->update(array(
             "id" => intval($_PUT["id"]),
-            "name" => $_PUT["name"]
+            "name" => $_PUT["name"],
+            "degree" => $_PUT["degree"],
+            "date" => $_PUT["date"]
         ));
         break;
 

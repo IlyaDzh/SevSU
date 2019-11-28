@@ -31,6 +31,7 @@ a {
 .table__title {
     font-weight: normal;
     font-size: 28px;
+    margin-bottom: 20px;
 }
 
 .table__title span {

@@ -62,7 +62,7 @@ $(function () {
                     return /^(19[0-9]{2}|2[0-9]{3})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/.test(value);
                 }
             },
-            { name: "gender", title: "Пол", type: "select", width: 75, items: genders, valueField: "gender", textField: "gender", validate: "required", filtering: false },
+            { name: "gender", title: "Пол", type: "select", width: 75, items: genders, valueField: "gender", textField: "gender", validate: "required" },
             { name: "tel", title: "Телефон", type: "text", width: 100, validate: "required" },
             { name: "address", title: "Адрес", type: "text", width: 105, validate: "required" },
             { type: "control" }

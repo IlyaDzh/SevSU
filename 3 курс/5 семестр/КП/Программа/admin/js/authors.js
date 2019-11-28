@@ -1,5 +1,12 @@
 $(function () {
 
+    var degrees = [
+        { degree: "", id: 0 },
+        { degree: "нет", id: 1 },
+        { degree: "кандидат наук", id: 2 },
+        { degree: "доктор наук", id: 3 }
+    ];
+
     $("#jsGrid").jsGrid({
         height: "90%",
         width: "100%",
@@ -50,6 +57,13 @@ $(function () {
         fields: [
             { name: "id", title: "ID", type: "number", width: 60 },
             { name: "name", title: "ФИО", type: "text", width: 350, validate: "required" },
+            { name: "degree", title: "Учёная степень", type: "select", width: 100, items: degrees, valueField: "degree", textField: "degree", validate: "required" },
+            {
+                name: "date", title: "Дата рождения", type: "text", width: 80,
+                validate: function (value, item) {
+                    return /^(19[0-9]{2}|2[0-9]{3})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/.test(value);
+                }
+            },
             { type: "control" }
         ]
     });

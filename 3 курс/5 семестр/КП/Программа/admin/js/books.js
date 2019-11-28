@@ -53,7 +53,12 @@ $(function () {
             { name: "authors", title: "Авторы", type: "text", width: 150, validate: "required" },
             { name: "categories", title: "Направление", type: "text", width: 180, validate: "required" },
             { name: "publish", title: "Издательство", type: "text", width: 110, validate: "required" },
-            { name: "date_create", title: "Дата издания", type: "text", width: 80, validate: "required" },
+            {
+                name: "date_create", title: "Дата издания", type: "text", width: 80,
+                validate: function (value, item) {
+                    return /^(19[0-9]{2}|2[0-9]{3})\-(0[1-9]|1[0-2])\-(0[1-9]|1[0-9]|2[0-9]|3[0-1])$/.test(value);
+                }
+            },
             { name: "number_pages", title: "Количество страниц", type: "number", width: 95, validate: "required" },
             { type: "control" }
         ]
