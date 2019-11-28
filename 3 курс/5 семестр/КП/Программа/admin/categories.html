@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="/css/style.css" rel="stylesheet" />
+    <link href="http://js-grid.com/css/jsgrid.min.css" rel="stylesheet" />
+    <link href="http://js-grid.com/css/jsgrid-theme.min.css" rel="stylesheet" />
+    <title>Администратор | Направления</title>
+</head>
+
+<body>
+    <header class="header">
+        <h2>БАЗА ДАННЫХ БИБЛИОТЕКИ</h2>
+        <h4>Научно-исследовательского института</h4>
+    </header>
+
+    <div class="aside">
+        <div class="aside__enter">
+            <p>Вы вошли как:</p>
+            <h3>Администратор</h3>
+            <a href="/">
+                <h4 class="btn-exit">Выйти</h4>
+            </a>
+        </div>
+        <nav class="aside-nav">
+            <ul class="aside-nav__list">
+                <li><a href="rent.html">Выдача книг</a></li>
+                <li><a href="books.html">Книги</a></li>
+                <li><a href="readers.html">Читатели</a></li>
+                <li><a href="authors.html">Авторы</a></li>
+                <li><a href="categories.html">Направления</a></li>
+                <li><a href="publish.html">Издательства</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1 class="table__title">
+            Все направления
+            <span>здесь все направления книг в библиотеке</span>
+        </h1>
+        <div id="jsGrid"></div>
+    </div>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://js-grid.com/js/jsgrid.min.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+
+</html>

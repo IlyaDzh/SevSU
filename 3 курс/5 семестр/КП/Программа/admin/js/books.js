@@ -1,7 +1,7 @@
 $(function () {
 
     $("#jsGrid").jsGrid({
-        height: "70%",
+        height: "90%",
         width: "100%",
         filtering: true,
         inserting: true,

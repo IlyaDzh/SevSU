@@ -7,7 +7,7 @@ $(function () {
     ];
 
     $("#jsGrid").jsGrid({
-        height: "70%",
+        height: "90%",
         width: "100%",
         filtering: true,
         inserting: true,
@@ -15,7 +15,7 @@ $(function () {
         sorting: true,
         paging: true,
         autoload: true,
-        pageSize: 9,
+        pageSize: 15,
         pageButtonCount: 5,
         deleteConfirm: "Вы действительно хотите удалить читателя?",
         pagerFormat: "Страница: {first} {prev} {pages} {next} {last}    {pageIndex} из {pageCount}",

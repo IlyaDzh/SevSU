@@ -1,13 +1,13 @@
 $(function () {
 
     $("#jsGrid").jsGrid({
-        height: "70%",
+        height: "90%",
         width: "100%",
         filtering: true,
         sorting: true,
         paging: true,
         autoload: true,
-        pageSize: 9,
+        pageSize: 7,
         pageButtonCount: 5,
         pagerFormat: "Страница: {first} {prev} {pages} {next} {last}    {pageIndex} из {pageCount}",
         pagePrevText: "Предыдущая",

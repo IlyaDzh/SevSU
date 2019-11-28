@@ -25,6 +25,17 @@ h1 {
 
 a {
     color: #00B7FF;
+    text-decoration: none;
+}
+
+.table__title {
+    font-weight: normal;
+    font-size: 28px;
+}
+
+.table__title span {
+    font-size: 16px;
+    color: gray;
 }
 
 .header {
@@ -33,6 +44,9 @@ a {
     text-align: center;
     margin: 0 auto;
     padding: 4px 22px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .enter {
@@ -63,19 +77,41 @@ a {
     color: #f1f1f1;
 }
 
-.aside_enter {
+.aside__enter {
     font-weight: bold;
     font-size: 16px;
+    margin-top: 20px;
 }
 
-.aside-nav {
+.btn-exit {
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .aside-nav__list {
     list-style: none;
 }
 
+.aside-nav__list li {
+    background-color: rgb(18, 35, 40);
+    border-left: 4px solid rgb(97, 92, 172);
+}
+
+.aside-nav__list a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.aside-nav__list a:hover {
+    color: #00B7FF;
+}
+
 .content {
     margin-left: 200px;
+    height: calc(100vh - 58px);
+    padding: 10px;
 }
