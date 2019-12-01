@@ -12,8 +12,8 @@ class RentRepository {
     private function read($row) {
         $result = new Rent();
         $result->id = $row["id_выдачи"];
-        $result->books = $row["название_книги"]; 
-        $result->readers = $row["фио_читателя"]; 
+        $result->id_books = $row["id_книги"]; 
+        $result->id_readers = $row["id_читателя"]; 
         $result->date_rent = $row["дата_выдачи"];
         $result->date_return = $row["дата_возврата"];
         return $result;
@@ -30,21 +30,21 @@ class RentRepository {
 
     public function getAll($filter) {
         $id = $filter["id"];
-        $books = "%" . $filter["books"] . "%";
-        $readers = "%" . $filter["readers"] . "%";
+        $id_books = $filter["id_books"];
+        $id_readers = $filter["id_readers"];
         $date_rent = "%" . $filter["date_rent"] . "%";
         $date_return = "%" . $filter["date_return"] . "%";
 
-        $sql = "SELECT выдача_книг.id_выдачи, книги.название 'название_книги', читатели.фио 'фио_читателя', выдача_книг.дата_выдачи, выдача_книг.дата_возврата
-                FROM выдача_книг
-                JOIN книги ON выдача_книг.id_книги = книги.id_книги
-                JOIN читатели ON выдача_книг.id_читателя = читатели.id_читателя
-                WHERE (:id = 0 OR id_выдачи = :id) AND книги.название LIKE :books AND читатели.фио LIKE :readers AND выдача_книг.дата_выдачи LIKE :date_rent AND выдача_книг.дата_возврата LIKE :date_return
-                ORDER BY выдача_книг.id_выдачи ASC";
+        $sql = "SELECT * FROM выдача_книг
+                WHERE (:id = 0 OR id_выдачи = :id) 
+                AND (:id_books = 0 OR id_книги = :id_books) 
+                AND (:id_readers = 0 OR id_читателя = :id_readers) 
+                AND дата_выдачи LIKE :date_rent 
+                AND дата_возврата LIKE :date_return";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
-        $q->bindParam(":books", $books);
-        $q->bindParam(":readers", $readers);
+        $q->bindParam(":id_books", $id_books);
+        $q->bindParam(":id_readers", $id_readers);
         $q->bindParam(":date_rent", $date_rent);
         $q->bindParam(":date_return", $date_return);
         $q->execute();
@@ -58,11 +58,12 @@ class RentRepository {
     }
 
     public function insert($data) {
-        $sql = "INSERT INTO выдача_книг (id_читателя, фио, дата_рождения, пол, телефон, адрес) VALUES (:id, :name, :date, :gender, :tel, :address)";
+        $sql = "INSERT INTO выдача_книг (id_выдачи, id_книги, id_читателя, дата_выдачи, дата_возврата) 
+                VALUES (:id, :id_books, :id_readers, :date_rent, :date_return)";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
-        $q->bindParam(":books", $data["books"]);
-        $q->bindParam(":readers", $data["readers"]);
+        $q->bindParam(":id_books", $data["id_books"], PDO::PARAM_INT);
+        $q->bindParam(":id_readers", $data["id_readers"], PDO::PARAM_INT);
         $q->bindParam(":date_rent", $data["date_rent"]);
         $q->bindParam(":date_return", $data["date_return"]);
         $q->execute();
@@ -70,11 +71,13 @@ class RentRepository {
     }
 
     public function update($data) {
-        $sql = "UPDATE выдача_книг SET id_читателя = :id, фио = :name, дата_рождения = :date, пол = :gender, телефон = :tel, адрес = :address WHERE id_читателя = :id";
+        $sql = "UPDATE выдача_книг 
+                SET id_выдачи = :id, id_книги = :id_books, id_читателя = :id_readers, дата_выдачи = :date_rent, дата_возврата = :date_return 
+                WHERE id_выдачи = :id";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
-        $q->bindParam(":books", $data["books"]);
-        $q->bindParam(":readers", $data["readers"]);
+        $q->bindParam(":id_books", $data["id_books"], PDO::PARAM_INT);
+        $q->bindParam(":id_readers", $data["id_readers"], PDO::PARAM_INT);
         $q->bindParam(":date_rent", $data["date_rent"]);
         $q->bindParam(":date_return", $data["date_return"]);
         $q->execute();

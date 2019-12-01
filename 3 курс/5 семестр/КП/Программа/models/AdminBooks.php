@@ -1,11 +1,10 @@
 <?php
 
-class Books {
+class AdminBooks {
     public $id;
     public $name;
-    public $authors;
-    public $categories;
-    public $publish;
+    public $id_categories;
+    public $id_publish;
     public $date_create;
     public $number_pages;
 }

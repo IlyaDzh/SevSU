@@ -21,38 +21,38 @@ $(function () {
             loadData: function (filter) {
                 return $.ajax({
                     type: "GET",
-                    url: "/pages/books/",
+                    url: "/pages/admin_books/",
                     data: filter
                 });
             },
             insertItem: function (item) {
                 return $.ajax({
                     type: "POST",
-                    url: "/pages/books/",
+                    url: "/pages/admin_books/",
                     data: item
                 });
             },
             updateItem: function (item) {
                 return $.ajax({
                     type: "PUT",
-                    url: "/pages/books/",
+                    url: "/pages/admin_books/",
                     data: item
                 });
             },
             deleteItem: function (item) {
                 return $.ajax({
                     type: "DELETE",
-                    url: "/pages/books/",
+                    url: "/pages/admin_books/",
                     data: item
                 });
             }
         },
         fields: [
             { name: "id", title: "ID", type: "number", width: 60 },
-            { name: "name", title: "Название книги", type: "text", width: 120, validate: "required" },
-            { name: "authors", title: "Авторы", type: "text", width: 150, validate: "required" },
-            { name: "categories", title: "Направление", type: "text", width: 180, validate: "required" },
-            { name: "publish", title: "Издательство", type: "text", width: 110, validate: "required" },
+            { name: "name", title: "Название книги", type: "text", width: 160, validate: "required" },
+            { name: "authors", title: "Авторы", type: "text", width: 140, validate: "required" },
+            { name: "id_categories", title: "ID направления", type: "number", width: 160, validate: "required" },
+            { name: "id_publish", title: "ID издательства", type: "number", width: 110, validate: "required" },
             {
                 name: "date_create", title: "Дата издания", type: "text", width: 80,
                 validate: function (value, item) {

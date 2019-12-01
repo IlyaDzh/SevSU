@@ -1,8 +1,8 @@
 <?php
 
-include "Books.php";
+include "ClientBooks.php";
 
-class BooksRepository {
+class ClientBooksRepository {
     protected $db;
 
     public function __construct(PDO $db) {
@@ -10,7 +10,7 @@ class BooksRepository {
     }
 
     private function read($row) {
-        $result = new Books();
+        $result = new ClientBooks();
         $result->id = $row["id_книги"];
         $result->name = $row["название"];
         $result->authors = $row["авторы"];
@@ -19,15 +19,6 @@ class BooksRepository {
         $result->date_create = $row["год_издания"];
         $result->number_pages = $row["количество_страниц"];
         return $result;
-    }
-
-    public function getById($id) {
-        $sql = "SELECT * FROM книги WHERE id_книги = :id";
-        $q = $this->db->prepare($sql);
-        $q->bindParam(":id", $id, PDO::PARAM_INT);
-        $q->execute();
-        $rows = $q->fetchAll();
-        return $this->read($rows[0]);
     }
 
     public function getAll($filter) {
@@ -67,40 +58,6 @@ class BooksRepository {
             array_push($result, $this->read($row));
         }
         return $result;
-    }
-
-    public function insert($data) {
-        $sql = "INSERT INTO книги (id_читателя, фио, дата_рождения, пол, телефон, адрес) VALUES (:id, :name, :date, :gender, :tel, :address)";
-        $q = $this->db->prepare($sql);
-        $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
-        $q->bindParam(":name", $data["name"]);
-        $q->bindParam(":authors", $data["authors"]);
-        $q->bindParam(":categories", $data["categories"]);
-        $q->bindParam(":publish", $data["publish"]);
-        $q->bindParam(":date_create", $data["date_create"]);
-        $q->bindParam(":number_pages", $data["number_pages"]);
-        $q->execute();
-        return $this->getById($this->db->lastInsertId());
-    }
-
-    public function update($data) {
-        $sql = "UPDATE книги SET id_читателя = :id, фио = :name, дата_рождения = :date, пол = :gender, телефон = :tel, адрес = :address WHERE id_читателя = :id";
-        $q = $this->db->prepare($sql);
-        $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
-        $q->bindParam(":name", $data["name"]);
-        $q->bindParam(":authors", $data["authors"]);
-        $q->bindParam(":categories", $data["categories"]);
-        $q->bindParam(":publish", $data["publish"]);
-        $q->bindParam(":date_create", $data["date_create"]);
-        $q->bindParam(":number_pages", $data["number_pages"]);
-        $q->execute();
-    }
-
-    public function remove($id) {
-        $sql = "DELETE FROM книги WHERE id_книги = :id";
-        $q = $this->db->prepare($sql);
-        $q->bindParam(":id", $id, PDO::PARAM_INT);
-        $q->execute();
     }
 }
 

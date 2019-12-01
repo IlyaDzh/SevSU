@@ -10,8 +10,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         $result = $rent->getAll(array(
             "id" => intval($_GET["id"]),
-            "books" => $_GET["books"],
-            "readers" => $_GET["readers"],
+            "id_books" => intval($_GET["id_books"]),
+            "id_readers" => intval($_GET["id_readers"]),
             "date_rent" => $_GET["date_rent"],
             "date_return" => $_GET["date_return"]
         ));
@@ -20,8 +20,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
     case "POST":
         $result = $rent->insert(array(
             "id" => intval($_POST["id"]),
-            "books" => $_POST["books"],
-            "readers" => $_POST["readers"],
+            "id_books" => intval($_POST["id_books"]),
+            "id_readers" => intval($_POST["id_readers"]),
             "date_rent" => $_POST["date_rent"],
             "date_return" => $_POST["date_return"]
         ));
@@ -32,8 +32,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
 
         $result = $rent->update(array(
             "id" => intval($_PUT["id"]),
-            "books" => $_PUT["books"],
-            "readers" => $_PUT["readers"],
+            "id_books" => intval($_PUT["id_books"]),
+            "id_readers" => intval($_PUT["id_readers"]),
             "date_rent" => $_PUT["date_rent"],
             "date_return" => $_PUT["date_return"]
         ));

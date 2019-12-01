@@ -1,19 +1,18 @@
 <?php
 
-include "../../models/BooksRepository.php";
+include "../../models/AdminBooksRepository.php";
 
 $config = include("../../db/config.php");
 $db = new PDO($config["db"], $config["username"], $config["password"]);
-$books = new BooksRepository($db);
+$books = new AdminBooksRepository($db);
 
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET":
         $result = $books->getAll(array(
             "id" => intval($_GET["id"]),
             "name" => $_GET["name"],
-            "authors" => $_GET["authors"],
-            "categories" => $_GET["categories"],
-            "publish" => $_GET["publish"],
+            "id_categories" => intval($_GET["id_categories"]),
+            "id_publish" => intval($_GET["id_publish"]),
             "date_create" => $_GET["date_create"],
             "number_pages" => intval($_GET["number_pages"])
         ));
@@ -23,9 +22,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $result = $books->insert(array(
             "id" => intval($_POST["id"]),
             "name" => $_POST["name"],
-            "authors" => $_POST["authors"],
-            "categories" => $_POST["categories"],
-            "publish" => $_POST["publish"],
+            "id_categories" => intval($_POST["id_categories"]),
+            "id_publish" => intval($_POST["id_publish"]),
             "date_create" => $_POST["date_create"],
             "number_pages" => intval($_POST["number_pages"])
         ));
@@ -37,9 +35,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $result = $books->update(array(
             "id" => intval($_PUT["id"]),
             "name" => $_PUT["name"],
-            "authors" => $_PUT["authors"],
-            "categories" => $_PUT["categories"],
-            "publish" => $_PUT["publish"],
+            "id_categories" => intval($_PUT["id_categories"]),
+            "id_publish" => intval($_PUT["id_publish"]),
             "date_create" => $_PUT["date_create"],
             "number_pages" => intval($_PUT["number_pages"])
         ));

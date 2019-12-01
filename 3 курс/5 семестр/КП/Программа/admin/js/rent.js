@@ -49,8 +49,8 @@ $(function () {
         },
         fields: [
             { name: "id", title: "ID", type: "number", width: 60 },
-            { name: "books", title: "Книга", type: "text", width: 150, validate: "required" },
-            { name: "readers", title: "Читатель", type: "text", width: 150, validate: "required" },
+            { name: "id_books", title: "ID книги", type: "number", width: 80, validate: "required" },
+            { name: "id_readers", title: "ID читателя", type: "number", width: 80, validate: "required" },
             {
                 name: "date_rent", title: "Дата выдачи", type: "text", width: 80,
                 validate: function (value, item) {
