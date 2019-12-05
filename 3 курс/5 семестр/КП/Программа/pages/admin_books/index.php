@@ -11,6 +11,7 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $result = $books->getAll(array(
             "id" => intval($_GET["id"]),
             "name" => $_GET["name"],
+            "id_authors" => $_GET["id_authors"],
             "id_categories" => intval($_GET["id_categories"]),
             "id_publish" => intval($_GET["id_publish"]),
             "date_create" => $_GET["date_create"],
@@ -22,6 +23,7 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $result = $books->insert(array(
             "id" => intval($_POST["id"]),
             "name" => $_POST["name"],
+            "id_authors" => $_POST["id_authors"],
             "id_categories" => intval($_POST["id_categories"]),
             "id_publish" => intval($_POST["id_publish"]),
             "date_create" => $_POST["date_create"],
@@ -35,6 +37,7 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $result = $books->update(array(
             "id" => intval($_PUT["id"]),
             "name" => $_PUT["name"],
+            "id_authors" => $_PUT["id_authors"],
             "id_categories" => intval($_PUT["id_categories"]),
             "id_publish" => intval($_PUT["id_publish"]),
             "date_create" => $_PUT["date_create"],

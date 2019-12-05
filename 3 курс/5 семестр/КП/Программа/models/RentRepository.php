@@ -37,10 +37,10 @@ class RentRepository {
 
         $sql = "SELECT * FROM выдача_книг
                 WHERE (:id = 0 OR id_выдачи = :id) 
-                AND (:id_books = 0 OR id_книги = :id_books) 
-                AND (:id_readers = 0 OR id_читателя = :id_readers) 
-                AND дата_выдачи LIKE :date_rent 
-                AND дата_возврата LIKE :date_return";
+                    AND (:id_books = 0 OR id_книги = :id_books) 
+                    AND (:id_readers = 0 OR id_читателя = :id_readers) 
+                    AND дата_выдачи LIKE :date_rent 
+                    AND дата_возврата LIKE :date_return";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
         $q->bindParam(":id_books", $id_books);

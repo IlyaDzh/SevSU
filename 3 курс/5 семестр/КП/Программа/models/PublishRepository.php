@@ -31,7 +31,10 @@ class PublishRepository {
         $name = "%" . $filter["name"] . "%";
         $address = "%" . $filter["address"] . "%";
 
-        $sql = "SELECT * FROM издательства WHERE (:id = 0 OR id_издательства = :id) AND название LIKE :name AND адрес LIKE :address";
+        $sql = "SELECT * FROM издательства 
+                WHERE (:id = 0 OR id_издательства = :id) 
+                AND название LIKE :name 
+                AND адрес LIKE :address";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
         $q->bindParam(":name", $name);
@@ -47,7 +50,8 @@ class PublishRepository {
     }
 
     public function insert($data) {
-        $sql = "INSERT INTO издательства (id_издательства, название, адрес) VALUES (:id, :name, :address)";
+        $sql = "INSERT INTO издательства (id_издательства, название, адрес) 
+                VALUES (:id, :name, :address)";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);
@@ -57,7 +61,9 @@ class PublishRepository {
     }
 
     public function update($data) {
-        $sql = "UPDATE издательства SET id_издательства = :id, название = :name, адрес = :address WHERE id_издательства = :id";
+        $sql = "UPDATE издательства 
+                SET id_издательства = :id, название = :name, адрес = :address 
+                WHERE id_издательства = :id";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);

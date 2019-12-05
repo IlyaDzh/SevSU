@@ -50,7 +50,7 @@ $(function () {
         fields: [
             { name: "id", title: "ID", type: "number", width: 60 },
             { name: "name", title: "Название книги", type: "text", width: 160, validate: "required" },
-            { name: "authors", title: "Авторы", type: "text", width: 140, validate: "required" },
+            { name: "id_authors", title: "ID автора", type: "text", width: 100, validate: "required" },
             { name: "id_categories", title: "ID направления", type: "number", width: 160, validate: "required" },
             { name: "id_publish", title: "ID издательства", type: "number", width: 110, validate: "required" },
             {

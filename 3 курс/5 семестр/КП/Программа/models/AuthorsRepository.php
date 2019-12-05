@@ -33,7 +33,11 @@ class AuthorsRepository {
         $degree = $filter["degree"];
         $date = "%" . $filter["date"] . "%";
 
-        $sql = "SELECT * FROM авторы WHERE (:id = 0 OR id_автора = :id) AND фио LIKE :name AND (:degree = '' OR учёная_степень = :degree) AND дата_рождения LIKE :date";
+        $sql = "SELECT * FROM авторы 
+                WHERE (:id = 0 OR id_автора = :id) 
+                    AND фио LIKE :name 
+                    AND (:degree = '' OR учёная_степень = :degree) 
+                    AND дата_рождения LIKE :date";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
         $q->bindParam(":name", $name);
@@ -50,7 +54,8 @@ class AuthorsRepository {
     }
 
     public function insert($data) {
-        $sql = "INSERT INTO авторы (id_автора, фио, учёная_степень, дата_рождения) VALUES (:id, :name, :degree, :date)";
+        $sql = "INSERT INTO авторы (id_автора, фио, учёная_степень, дата_рождения) 
+                VALUES (:id, :name, :degree, :date)";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);
@@ -61,7 +66,9 @@ class AuthorsRepository {
     }
 
     public function update($data) {
-        $sql = "UPDATE авторы SET id_автора = :id, фио = :name, учёная_степень = :degree, дата_рождения = :date WHERE id_автора = :id";
+        $sql = "UPDATE авторы 
+                SET id_автора = :id, фио = :name, учёная_степень = :degree, дата_рождения = :date 
+                WHERE id_автора = :id";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);

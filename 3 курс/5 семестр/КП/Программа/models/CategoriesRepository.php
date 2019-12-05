@@ -29,7 +29,9 @@ class CategoriesRepository {
         $id = $filter["id"];
         $description = "%" . $filter["description"] . "%";
 
-        $sql = "SELECT * FROM направления WHERE (:id = 0 OR id_направления = :id) AND описание LIKE :description";
+        $sql = "SELECT * FROM направления 
+                WHERE (:id = 0 OR id_направления = :id) 
+                AND описание LIKE :description";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
         $q->bindParam(":description", $description);
@@ -44,7 +46,8 @@ class CategoriesRepository {
     }
 
     public function insert($data) {
-        $sql = "INSERT INTO направления (id_направления, описание) VALUES (:id, :description)";
+        $sql = "INSERT INTO направления (id_направления, описание) 
+                VALUES (:id, :description)";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":description", $data["description"]);
@@ -53,7 +56,9 @@ class CategoriesRepository {
     }
 
     public function update($data) {
-        $sql = "UPDATE направления SET id_направления = :id, описание = :description WHERE id_направления = :id";
+        $sql = "UPDATE направления 
+                SET id_направления = :id, описание = :description 
+                WHERE id_направления = :id";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":description", $data["description"]);

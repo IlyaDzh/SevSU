@@ -37,7 +37,13 @@ class ReadersRepository {
         $tel = "%" . $filter["tel"] . "%";
         $address = "%" . $filter["address"] . "%";
 
-        $sql = "SELECT * FROM читатели WHERE (:id = 0 OR id_читателя = :id) AND фио LIKE :name AND дата_рождения LIKE :date AND (:gender = '' OR пол = :gender) AND телефон LIKE :tel AND адрес LIKE :address";
+        $sql = "SELECT * FROM читатели 
+                WHERE (:id = 0 OR id_читателя = :id) 
+                AND фио LIKE :name 
+                AND дата_рождения LIKE :date 
+                AND (:gender = '' OR пол = :gender) 
+                AND телефон LIKE :tel 
+                AND адрес LIKE :address";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $id);
         $q->bindParam(":name", $name);
@@ -56,7 +62,8 @@ class ReadersRepository {
     }
 
     public function insert($data) {
-        $sql = "INSERT INTO читатели (id_читателя, фио, дата_рождения, пол, телефон, адрес) VALUES (:id, :name, :date, :gender, :tel, :address)";
+        $sql = "INSERT INTO читатели (id_читателя, фио, дата_рождения, пол, телефон, адрес) 
+                VALUES (:id, :name, :date, :gender, :tel, :address)";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);
@@ -69,7 +76,9 @@ class ReadersRepository {
     }
 
     public function update($data) {
-        $sql = "UPDATE читатели SET id_читателя = :id, фио = :name, дата_рождения = :date, пол = :gender, телефон = :tel, адрес = :address WHERE id_читателя = :id";
+        $sql = "UPDATE читатели 
+                SET id_читателя = :id, фио = :name, дата_рождения = :date, пол = :gender, телефон = :tel, адрес = :address 
+                WHERE id_читателя = :id";
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);
