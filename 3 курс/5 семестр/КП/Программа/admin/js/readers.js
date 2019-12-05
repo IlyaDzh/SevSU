@@ -54,7 +54,7 @@ $(function () {
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "id", title: "ID", type: "number", width: 60, editing: false },
             { name: "name", title: "ФИО", type: "text", width: 115, validate: "required" },
             {
                 name: "date", title: "Дата рождения", type: "text", width: 85,

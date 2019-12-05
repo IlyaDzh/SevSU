@@ -48,7 +48,7 @@ $(function () {
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "id", title: "ID", type: "number", width: 60, editing: false },
             { name: "name", title: "Название", type: "text", width: 175, validate: "required" },
             { name: "address", title: "Адрес", type: "text", width: 175, validate: "required" },
             { type: "control" }

@@ -55,7 +55,7 @@ $(function () {
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "id", title: "ID", type: "number", width: 60, editing: false },
             { name: "name", title: "ФИО", type: "text", width: 350, validate: "required" },
             { name: "degree", title: "Учёная степень", type: "select", width: 100, items: degrees, valueField: "degree", textField: "degree", validate: "required" },
             {

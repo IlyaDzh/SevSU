@@ -48,7 +48,7 @@ $(function () {
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "id", title: "ID", type: "number", width: 60, editing: false },
             { name: "id_books", title: "ID книги", type: "number", width: 80, validate: "required" },
             { name: "id_readers", title: "ID читателя", type: "number", width: 80, validate: "required" },
             {

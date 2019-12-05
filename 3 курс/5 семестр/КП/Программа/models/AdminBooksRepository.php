@@ -84,19 +84,20 @@ class AdminBooksRepository {
 
         $idAuthors = explode(",", str_replace(" ", "", $data["id_authors"]));
         foreach($idAuthors as $arr){
-            $this->insertAuthors($arr, $data["name"]);
+            $this->insertAuthors($arr, $data["name"], $data["number_pages"]);
         }
         
         return $this->getById($this->db->lastInsertId());
     }
 
-    public function insertAuthors($arr, $authorsName) {
+    public function insertAuthors($arr, $authorsName, $numberPages) {
         $sql = "INSERT INTO авторы_книги (id_книги, id_автора)
                 SELECT книги.id_книги, :id_authors
                 FROM книги
-                WHERE книги.название = :name";
+                WHERE книги.название = :name AND книги.количество_страниц = :number_pages";
         $q = $this->db->prepare($sql);
         $q->bindParam(":name", $authorsName);
+        $q->bindParam(":number_pages", $numberPages);
         $q->bindParam(":id_authors", $arr, PDO::PARAM_INT);
         $q->execute();
     }
@@ -108,11 +109,24 @@ class AdminBooksRepository {
         $q = $this->db->prepare($sql);
         $q->bindParam(":id", $data["id"], PDO::PARAM_INT);
         $q->bindParam(":name", $data["name"]);
-        $q->bindParam(":id_authors", $data["id_authors"]);
         $q->bindParam(":id_categories", $data["id_categories"], PDO::PARAM_INT);
         $q->bindParam(":id_publish", $data["id_publish"], PDO::PARAM_INT);
         $q->bindParam(":date_create", $data["date_create"]);
         $q->bindParam(":number_pages", $data["number_pages"], PDO::PARAM_INT);
+        $q->execute();
+
+        $this->deleteAuthors($data["id"]);
+
+        $idAuthors = explode(",", str_replace(" ", "", $data["id_authors"]));
+        foreach($idAuthors as $arr){
+            $this->insertAuthors($arr, $data["name"], $data["number_pages"]);
+        }
+    }
+
+    public function deleteAuthors($id) {
+        $sql = "DELETE FROM авторы_книги WHERE id_книги = :id";
+        $q = $this->db->prepare($sql);
+        $q->bindParam(":id", $id, PDO::PARAM_INT);
         $q->execute();
     }
 

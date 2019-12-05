@@ -9,7 +9,7 @@ $(function () {
         sorting: true,
         paging: true,
         autoload: true,
-        pageSize: 9,
+        pageSize: 12,
         pageButtonCount: 5,
         deleteConfirm: "Вы действительно хотите удалить книгу?",
         pagerFormat: "Страница: {first} {prev} {pages} {next} {last}    {pageIndex} из {pageCount}",
@@ -48,7 +48,7 @@ $(function () {
             }
         },
         fields: [
-            { name: "id", title: "ID", type: "number", width: 60 },
+            { name: "id", title: "ID", type: "number", width: 60, editing: false },
             { name: "name", title: "Название книги", type: "text", width: 160, validate: "required" },
             { name: "id_authors", title: "ID автора", type: "text", width: 100, validate: "required" },
             { name: "id_categories", title: "ID направления", type: "number", width: 160, validate: "required" },
