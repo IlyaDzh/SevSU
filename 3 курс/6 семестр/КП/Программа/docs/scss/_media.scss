@@ -1,0 +1,23 @@
+@media (max-width: 991px) {
+    .products {
+        .top-item a {
+            padding: 15px 20px;
+        }
+
+        .bottom-item__link {
+            padding: 15px;
+        }
+    }
+}
+
+@media (max-width: 856px) {
+    .products {
+        .top-item a {
+            padding: 15px;
+        }
+
+        .bottom-item__link {
+            padding: 15px 10px;
+        }
+    }
+}

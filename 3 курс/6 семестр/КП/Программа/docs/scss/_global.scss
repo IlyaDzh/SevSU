@@ -1,0 +1,40 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.btn-orange {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    background: $orange;
+    border-color: $orange;
+
+    &:hover {
+        color: #fff;
+        background: #f78a1e;
+        border-color: #f78a1e;
+    }
+    
+    &:active {
+        color: #fff;
+        background: #e6790d;
+        border-color: #e6790d;
+    }
+
+    &:focus {
+        background-color: #f78a1e;
+        border-color: #f78a1e;
+        box-shadow: 0 0 0 0.2rem #ffbd7a;
+    }
+}
