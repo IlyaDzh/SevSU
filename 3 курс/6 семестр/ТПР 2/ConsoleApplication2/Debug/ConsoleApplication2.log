@@ -1,0 +1,6 @@
+﻿  ConsoleApplication2.cpp
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 2\ConsoleApplication2\ConsoleApplication2.cpp(7,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 2\ConsoleApplication2\ConsoleApplication2.cpp(142,46): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 2\ConsoleApplication2\ConsoleApplication2.cpp(144,33): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 2\ConsoleApplication2\ConsoleApplication2.cpp(147,46): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  ConsoleApplication2.vcxproj -> C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 2\ConsoleApplication2\Debug\ConsoleApplication2.exe
