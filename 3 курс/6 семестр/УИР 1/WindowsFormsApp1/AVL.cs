@@ -4,7 +4,6 @@ namespace WindowsFormsApp1
 {
     class AVL
     {
-        public List<int> resultTree = new List<int>();
         class Node
         {
             public int data;
@@ -144,21 +143,6 @@ namespace WindowsFormsApp1
             {
                 if (target == current.data) return current;
                 else return Find(target, current.right);
-            }
-        }
-        public void DisplayTree()
-        {
-            resultTree.Clear();
-            if (root == null) return;
-            InOrderDisplayTree(root);
-        }
-        private void InOrderDisplayTree(Node current)
-        {
-            if (current != null)
-            {
-                InOrderDisplayTree(current.left);
-                resultTree.Add(current.data);
-                InOrderDisplayTree(current.right);
             }
         }
         private int max(int l, int r)

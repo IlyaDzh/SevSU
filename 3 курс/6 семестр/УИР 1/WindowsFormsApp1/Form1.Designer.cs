@@ -138,7 +138,7 @@
             this.listView.Location = new System.Drawing.Point(13, 164);
             this.listView.MultiSelect = false;
             this.listView.Name = "listView";
-            this.listView.Size = new System.Drawing.Size(447, 289);
+            this.listView.Size = new System.Drawing.Size(447, 337);
             this.listView.TabIndex = 9;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
@@ -231,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(473, 465);
+            this.ClientSize = new System.Drawing.Size(473, 513);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonResult);
             this.Controls.Add(this.label4);
