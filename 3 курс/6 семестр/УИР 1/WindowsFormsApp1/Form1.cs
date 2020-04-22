@@ -9,7 +9,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        string readPath = @"D:\GraphViz\data200.txt";
+        string readPath = @"D:\GraphViz\data10.txt";
         string writePath = @"D:\GraphViz\graphfile.txt";
         AVLTree<int> avltree;
         AVL avl;
@@ -30,11 +30,11 @@ namespace WindowsFormsApp1
             {
                 string[] row = { textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text };
 
-                Stopwatch sWatch = new Stopwatch();
-                sWatch.Start();
+                //Stopwatch sWatch = new Stopwatch();
+                //sWatch.Start();
                 avl.Add(Convert.ToInt32(row[0]));
-                sWatch.Stop();
-                MessageBox.Show(sWatch.ElapsedTicks.ToString());
+                //sWatch.Stop();
+                //MessageBox.Show(sWatch.ElapsedTicks.ToString());
 
                 avltree.Insert(Convert.ToInt32(row[0]));
 
@@ -54,12 +54,12 @@ namespace WindowsFormsApp1
         {
             if (Regex.IsMatch(textBox1.Text, @"^\d+$") && textBox2.Text != "" && textBox3.Text != "" && Regex.IsMatch(textBox4.Text, @"^\d+$"))
             {
-                Stopwatch sWatch = new Stopwatch();
-                sWatch.Start();
+                //Stopwatch sWatch = new Stopwatch();
+                //sWatch.Start();
                 avl.Delete(Convert.ToInt32(listView.SelectedItems[0].SubItems[0].Text));
                 avl.Add(Convert.ToInt32(listView.SelectedItems[0].SubItems[0].Text));
-                sWatch.Stop();
-                MessageBox.Show(sWatch.ElapsedTicks.ToString());
+                //sWatch.Stop();
+                //MessageBox.Show(sWatch.ElapsedTicks.ToString());
 
                 listView.SelectedItems[0].Remove();
 
@@ -89,11 +89,11 @@ namespace WindowsFormsApp1
 
             try
             {
-                Stopwatch sWatch = new Stopwatch();
-                sWatch.Start();
+                //Stopwatch sWatch = new Stopwatch();
+                //sWatch.Start();
                 avl.Find(Convert.ToInt32(textBox1.Text));
-                sWatch.Stop();
-                MessageBox.Show(sWatch.ElapsedTicks.ToString());
+                //sWatch.Stop();
+                //MessageBox.Show(sWatch.ElapsedTicks.ToString());
 
                 if (avl.Find(Convert.ToInt32(textBox1.Text)))
                 {
@@ -124,11 +124,11 @@ namespace WindowsFormsApp1
                     var item = listView.Items[i];
                     if (item.Text == textBox1.Text)
                     {
-                        Stopwatch sWatch = new Stopwatch();
-                        sWatch.Start();
+                        //Stopwatch sWatch = new Stopwatch();
+                        //sWatch.Start();
                         avl.Delete(Convert.ToInt32(textBox1.Text));
-                        sWatch.Stop();
-                        MessageBox.Show(sWatch.ElapsedTicks.ToString());
+                        //sWatch.Stop();
+                        //MessageBox.Show(sWatch.ElapsedTicks.ToString());
 
                         deleted = true;
                         listView.Items.Remove(item);
