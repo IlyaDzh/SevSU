@@ -1,15 +1,9 @@
-<?php
-    $title = "Ilya D. | Обо мне";
-    $active = "Обо мне";
-    require("header.php");
-?>
-
 <section class="content container">
     <div class="row align-items-center pt-5">
-        <div class="col-md-4">
+        <div class="col-md-5 col-xl-4">
             <img src="public/img/about-img.jpg" class="rounded img-fluid mb-3 mt-3" alt="">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7 col-xl-8">
             <h1 class="about__title">
                 Моя биография
             </h1>
@@ -28,13 +22,3 @@
         </div>
     </div>
 </section>
-
-<?php
-    $footer_scripts = array(
-        "jquery-3.4.1.min.js", 
-        "history.js", 
-        "time.js", 
-        "dropdown.js"
-    );
-    require("footer.php");
-?>
