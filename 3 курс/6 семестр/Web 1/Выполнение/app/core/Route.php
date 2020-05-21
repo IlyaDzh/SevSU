@@ -36,7 +36,7 @@ class Route {
 		if (file_exists($controller_path)) {
 			include "app/controllers/" . $controller_file;
 		} else {
-			Route::ErrorPage404();
+            // Route::ErrorPage404();
 		}
 		
 		// создаем контроллер
@@ -47,7 +47,7 @@ class Route {
 			// вызываем действие контроллера
 			$controller->$action();
 		} else {
-			Route::ErrorPage404();
+            // Route::ErrorPage404();
 		}
 	
 	}
@@ -56,6 +56,6 @@ class Route {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('HTTP/1.1 404 Not Found');
 		header("Status: 404 Not Found");
-		header('Location:' . $host.'404');
+		header('Location:' . $host.'error');
     }
 }

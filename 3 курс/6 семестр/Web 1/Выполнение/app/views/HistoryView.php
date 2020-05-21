@@ -25,4 +25,4 @@
     </table>
 </section>
 
-<script src="public/js/getHistory.js"></script>=
+<script src="/public/js/getHistory.js"></script>=

@@ -1,7 +1,9 @@
+<?php print_r($data) ?>
+
 <section class="content container">
-    <form action="">
+    <form action="/contact/check" method="POST">
         <div class="form-group">
-            <input type="text" class="form-control tooltip-input" id="inputFio"
+            <input type="text" class="form-control tooltip-input" name="fio"
                 title="Фамилия Имя Отчество через пробел" placeholder="Введите ваше ФИО" autocomplete="off">
             <div class="invalid-feedback">
                 Неверный формат ввода! Пример: Иванов Иван Иванович
@@ -18,18 +20,18 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="date" class="form-control tooltip-input" id="inputDate" title="Выберите вашу дату рождения" 
+            <input type="date" class="form-control tooltip-input" name="date" title="Выберите вашу дату рождения" 
                 autocomplete="off">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control tooltip-input" id="inputNum" title="Пример: +79781234567"
+            <input type="text" class="form-control tooltip-input" name="phone" title="Пример: +79781234567"
                 placeholder="Введите номер телефона" autocomplete="off">
             <div class="invalid-feedback">
                 Неверный формат ввода!
             </div>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control tooltip-input" id="inputEmail" title="Пример: ivanov@gmail.com"
+            <input type="text" class="form-control tooltip-input" name="email" title="Пример: ivanov@gmail.com"
                 placeholder="Введите email" autocomplete="off">
             <div class="invalid-feedback">
                 Неверный формат ввода! Пример: name@gmail.com
@@ -41,13 +43,13 @@
                 Необходимо заполнить поле!
             </div>
         </div>
-        <button class="btn btn-primary" type="submit" name="submit">Отправить</button>
+        <button class="btn btn-primary" type="submit">Отправить</button>
         <button class="btn btn-danger" type="button">Очистить</button>
         <div class="modal">
             <div class="modal__content">
                 <p>Вы действительно хотите очистить форму?</p>
                 <form onsubmit="return false">
-                    <button class="btn btn-outline-primary" type="reset" name="reset">Да</button>
+                    <button class="btn btn-outline-primary" type="reset">Да</button>
                     <button class="btn btn-outline-primary" type="button">Нет</button>
                 </form>
             </div>
@@ -57,4 +59,4 @@
 
 <div class="cover"></div>
 
-<script src="public/js/modal.js"></script>
+<script src="/public/js/modal.js"></script>

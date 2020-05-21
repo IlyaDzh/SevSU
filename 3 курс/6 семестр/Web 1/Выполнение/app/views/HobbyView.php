@@ -24,7 +24,7 @@
                 <div class="'.$row['id'].' pt-6" id='.$row['id'].'>
                     <div class="row align-items-center '. $reverse .'">
                         <div class="col-md-4">
-                            <img src="public/img/'.$row['picture'].'" class="rounded img-fluid" alt="">
+                            <img src="/public/img/'.$row['picture'].'" class="rounded img-fluid" alt="">
                         </div>
                         <div class="col-md-8">
                             <h1 class="about__title mb-4">

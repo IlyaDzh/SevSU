@@ -327,8 +327,7 @@ textarea {
     z-index: 200;
 
     &__content {
-        border-radius: 10px;
-        display: none;
+        border-radius: 4px;
         max-width: 400px;
         width: 100%;
         position: relative;
@@ -337,7 +336,6 @@ textarea {
         padding: 50px 0;
         top: 50%;
         left: 50%;
-        margin-right: -50%;
         transform: translate(-50%, -50%);
     
         .btn {

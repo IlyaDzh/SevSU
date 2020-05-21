@@ -1,10 +1,12 @@
+<?php print_r($data) ?>
+
 <section class="content container">
     <h2 class="mb-4">Тест по основам дискретной математики</h2>
-    <form action="">
+    <form action="/test/check" method="POST">
         <div class="form-row mb-3">
             <div class="form-group col-md-6">
                 <label for="inputFio">ФИО</label>
-                <input type="text" class="form-control tooltip-input" id="inputFio"
+                <input type="text" class="form-control tooltip-input" name="fio" 
                     title="Фамилия Имя Отчество через пробел" placeholder="Введите ваше ФИО" autocomplete="off" autofocus>
                 <div class="invalid-feedback">
                     Неверный формат ввода! Пример: Иванов Иван Иванович
@@ -12,7 +14,7 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputGroup">Группа</label>
-                <input type="text" class="form-control tooltip-input" id="inputGroup" placeholder="Введите название группы"
+                <input type="text" class="form-control tooltip-input" name="group" placeholder="Введите название группы"
                     title="Пример: ИС-32" autocomplete="off">
                 <div class="invalid-feedback">
                     Необходимо заполнить поле!
@@ -63,13 +65,13 @@
                 Пустое поле или ответ содержит цифры!
             </div>
         </div>
-        <button class="btn btn-primary" type="submit" name="submit">Отправить</button>
+        <button class="btn btn-primary" type="submit">Отправить</button>
         <button class="btn btn-danger" type="button">Очистить</button>
         <div class="modal">
             <div class="modal__content">
                 <p>Вы действительно хотите очистить форму?</p>
                 <form onsubmit="return false">
-                    <button class="btn btn-outline-primary" type="reset" name="reset">Да</button>
+                    <button class="btn btn-outline-primary" type="reset">Да</button>
                     <button class="btn btn-outline-primary" type="button">Нет</button>
                 </form>
             </div>
@@ -79,4 +81,4 @@
 
 <div class="cover"></div>
 
-<script src="public/js/modal.js"></script>
+<script src="/public/js/modal.js"></script>

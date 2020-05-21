@@ -12,7 +12,7 @@
                     echo '
                         <div class="img-elem">
                             <div class="img-wrapper rounded">
-                                <img class="img-fluid rounded inner-img" src="public/img/photo/'.$item['img'].'" title='.$item['title'].' />
+                                <img class="img-fluid rounded inner-img" src="/public/img/photo/'.$item['img'].'" title='.$item['title'].' />
                             </div>
                             <h5 class="photo__subtitle">'.$item['title'].'</h5>
                         </div>
@@ -35,4 +35,4 @@
     <button class="control__btn" id="btn__right">&gt;</button>
 </div>
 
-<script src="public/js/openPhoto.js"></script>
+<script src="/public/js/openPhoto.js"></script>

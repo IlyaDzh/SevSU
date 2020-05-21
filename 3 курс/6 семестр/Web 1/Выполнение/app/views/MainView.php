@@ -8,7 +8,7 @@
         </h5>
     </div>
     <div class="main-image">
-        <img src="public/img/photo-main.jpg" class="main__photo" alt="My photo">
+        <img src="/public/img/photo-main.jpg" class="main__photo" alt="My photo">
     </div>
     <h1 class="main__fio">Долженко Илья Андреевич</h1>
     <h2 class="main__group">ИС-17-2</h2>

@@ -1,7 +1,7 @@
 <section class="content container">
     <div class="row align-items-center pt-5">
         <div class="col-md-5 col-xl-4">
-            <img src="public/img/about-img.jpg" class="rounded img-fluid mb-3 mt-3" alt="">
+            <img src="/public/img/about-img.jpg" class="rounded img-fluid mb-3 mt-3" alt="">
         </div>
         <div class="col-md-7 col-xl-8">
             <h1 class="about__title">
