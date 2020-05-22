@@ -3,26 +3,29 @@
 class FormValidation {
     public $errors = [];
     public $rules = [
-        'fio' => [
+        'ФИО' => [
 			'isNotEmpty'
 		],
-        'group' => [
+        'Группа' => [
 			'isNotEmpty'
 		],
-		'phone' => [
+		'Телефон' => [
 			'isNotEmpty',
 			'isPhone'
 		],
-		'date' => [
+		'Дата' => [
 			'isNotEmpty'
 		],
-		'email' => [
+		'Email' => [
 			'isEmail'
-		]
+        ]
     ];
 
-    public function setRule($field_name, $validator_name){
-		array_push($this->rules[$field_name], $validator_name);
+    public function setRule($field_name, $validator_name) {
+        if (!$this->rules[$field_name]) {
+            $this->rules[$field_name] = [];
+        }
+        array_push($this->rules[$field_name], $validator_name);
 	}
 
     public function getErrors() {
@@ -37,6 +40,13 @@ class FormValidation {
                 }
             }
         }
+    }
+
+    public function isNotEmptySelect($data, $key) {
+		if ($data == 'Выберите ответ') {
+			array_push($this->errors, "Поле $key не должно быть пустым");
+		}
+		return true;
     }
 
     public function isNotEmpty($data, $key) {

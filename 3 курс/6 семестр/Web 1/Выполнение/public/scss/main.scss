@@ -126,64 +126,20 @@ textarea {
     color: rgba(255, 255, 255, .95) !important;
 }
 
-/* CALENDAR */
+.result-block {
+    margin-top: 8px;
 
-.calendar-wrapper {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    padding: 6px;
-    visibility: hidden;
-    border-radius: .25rem;
-    height: auto;
-    max-width: 260px;
-    width: 100%;
-    position: absolute;
-    border: 1px solid #ced4da;
-    background-color: #f5f5f5;
-    margin-top: 2px;
-}
+    .result-block__item {
+        margin-bottom: 0;
+        font-size: 14px;
 
-.calendar-content {
-    text-align: right;
-    margin: 0 auto;
-
-    td {
-        background-color: white;
-        border: 1px solid #5a5a5a;
-
-        a {
-            padding: 6px;
-            color: black;
+        &.error {
+            color: #f31111;
         }
-    }
 
-    td:hover {
-        background-color: $calendar-select-color;
-
-        a {
-            color: white;
-            text-decoration: none;
+        &.success {
+            color: #01b700;
         }
-    }
-}
-
-.calendar-button {
-    background-color: white;
-    border: 1px solid rgb(160, 160, 160);
-    font-size: 15px;
-    margin-left: 5px;
-    padding: 0px 10px;
-
-    &:hover {
-        border-color: rgb(105, 105, 105);
-    }
-}
-
-.select-day {
-    color: #fff !important;
-
-    &-bg {
-        background-color: $calendar-select-color !important;
     }
 }
 
@@ -351,7 +307,7 @@ textarea {
 
 /* TOOLTIP */
 
-.wy{
+.wy {
     &-tooltip {
         border: 1px solid #F1D031;
         color: #444;

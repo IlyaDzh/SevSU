@@ -1,13 +1,8 @@
-<?php print_r($data) ?>
-
 <section class="content container">
     <form action="/contact/check" method="POST">
         <div class="form-group">
-            <input type="text" class="form-control tooltip-input" name="fio"
+            <input type="text" class="form-control tooltip-input" name="ФИО" 
                 title="Фамилия Имя Отчество через пробел" placeholder="Введите ваше ФИО" autocomplete="off">
-            <div class="invalid-feedback">
-                Неверный формат ввода! Пример: Иванов Иван Иванович
-            </div>
         </div>
         <div class="form-group">
             <div class="form-check form-check-inline">
@@ -20,31 +15,34 @@
             </div>
         </div>
         <div class="form-group">
-            <input type="date" class="form-control tooltip-input" name="date" title="Выберите вашу дату рождения" 
-                autocomplete="off">
+            <input type="date" class="form-control tooltip-input" name="Дата" title="Выберите вашу дату рождения" autocomplete="off">
         </div>
         <div class="form-group">
-            <input type="text" class="form-control tooltip-input" name="phone" title="Пример: +79781234567"
+            <input type="text" class="form-control tooltip-input" name="Телефон" title="Пример: +79781234567"
                 placeholder="Введите номер телефона" autocomplete="off">
-            <div class="invalid-feedback">
-                Неверный формат ввода!
-            </div>
         </div>
         <div class="form-group">
-            <input type="text" class="form-control tooltip-input" name="email" title="Пример: ivanov@gmail.com"
+            <input type="text" class="form-control tooltip-input" name="Email" title="Пример: ivanov@gmail.com"
                 placeholder="Введите email" autocomplete="off">
-            <div class="invalid-feedback">
-                Неверный формат ввода! Пример: name@gmail.com
-            </div>
         </div>
         <div class="form-group">
-            <textarea class="form-control" id="inputText" rows="4" placeholder="Введите сообщение"></textarea>
-            <div class="invalid-feedback">
-                Необходимо заполнить поле!
-            </div>
+            <textarea class="form-control" name="message" rows="4" placeholder="Введите сообщение"></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Отправить</button>
         <button class="btn btn-danger" type="button">Очистить</button>
+        <div class='result-block'>
+            <?php 
+                if (isset($data['errors'])) {
+                    if (count($data['errors']) > 0) {
+                        foreach ($data['errors'] as $key => $item) {
+                            echo "<p class='result-block__item error'>$item</p>";
+                        }
+                    } else {
+                        echo "<p class='result-block__item success'>Форма была отправлена</p>";
+                    }
+                }
+            ?>
+        </div>
         <div class="modal">
             <div class="modal__content">
                 <p>Вы действительно хотите очистить форму?</p>

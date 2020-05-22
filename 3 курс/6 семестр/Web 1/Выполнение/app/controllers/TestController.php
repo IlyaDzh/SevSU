@@ -14,14 +14,14 @@ class TestController extends Controller {
 		if (!empty($_POST)) {
 			$this->model->validator->validate($_POST);
             $errors = $this->model->validator->getErrors();
-			// if (empty($errors)) {
-			// 	$this->model->validator->checkAns();
-			// 	$result = $this->model->validator->getResult();
-            //     $vars = [ 'errors' => $errors, 'result' => $result ];
-			// }
-			// else {
+			if (empty($errors)) {
+				$this->model->validator->checkAns($_POST);
+                $result = $this->model->validator->getResult();
+                $vars = [ 'result' => $result ];
+			}
+			else {
                 $vars = [ 'errors' => $errors ];
-            // }
+            }
 			$this->view->render('TestView.php', 'Тест', $vars);
 		} else {
             $this->view->render('TestView.php', 'Тест');
