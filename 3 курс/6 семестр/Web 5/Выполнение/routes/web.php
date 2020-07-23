@@ -25,6 +25,11 @@ Route::resource('blog', 'PostController')->names('posts');
 
 Route::post('/comment/create', 'CommentController@create')->name('api.comment.create');
 
+Route::patch('/post/update', 'PostController@update')->name('api.post.update');
+
+
+
+
 Auth::routes();
 
 Route::get('/home', function(){ 

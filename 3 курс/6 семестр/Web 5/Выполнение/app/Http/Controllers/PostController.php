@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\postRequest;
 
 use App\Models\Post;
 
@@ -16,7 +17,6 @@ class PostController extends Controller
     public function index()
     {
         $data = Post::orderBy('created_at', 'desc')->with(['comments'])->paginate(3);
-        // $data = Post::orderBy('created_at', 'desc')->paginate(3);
 
         return view('blog', compact('data'));
     }
@@ -37,9 +37,21 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(postRequest $request)
     {
-        //
+        $data = $request->input();
+        $item = (new Post()) -> fill($data);
+
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . request()->image->getClientOriginalExtension();
+            request()->image->move(public_path('img/uploads'), $imageName);
+
+            $item->image = 'img/uploads/' . $imageName;
+        }
+
+        $item->save();
+
+        return redirect()->route("posts.index");
     }
 
     /**
@@ -71,9 +83,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(postRequest $request)
     {
-        //
+        $data = $request->input();
+        $item = Post::findOrFail($data['id']);
+
+        $item->update($data);
     }
 
     /**
