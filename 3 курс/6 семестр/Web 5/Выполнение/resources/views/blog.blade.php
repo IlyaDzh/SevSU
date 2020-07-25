@@ -46,15 +46,24 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $item->title }}</h5>
                             <p class="card-text">{{ $item->text }}</p>
-                            <button 
-                                class="btn edit-btn" 
-                                type="button" 
-                                data-id="{{ $item->id }}" 
-                                data-title="{{ $item->title }}" 
-                                data-text="{{ $item->text }}" 
-                            >
-                                <img src="{{ 'img/edit.svg' }}"/>
-                            </button>
+                            @if (Auth::user() && Auth::user()->isAdmin)
+                                <button 
+                                    class="btn edit-btn" 
+                                    type="button" 
+                                    data-id="{{ $item->id }}" 
+                                    data-title="{{ $item->title }}" 
+                                    data-text="{{ $item->text }}" 
+                                >
+                                    <img src="{{ 'img/edit.svg' }}"/>
+                                </button>
+                                <form action="{{ route('posts.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @METHOD("DELETE")
+                                    <button class="btn delete-btn" type="submit">
+                                        <img src="{{ 'img/trash.svg' }}"/>
+                                    </button>
+                                </form>
+                            @endif
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">{{ $item->created_at }}</small>

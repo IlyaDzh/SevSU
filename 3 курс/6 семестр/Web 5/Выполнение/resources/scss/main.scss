@@ -177,6 +177,22 @@ textarea {
                 background: #eeeeee;
             }
         }
+
+        .delete-btn {
+            position: absolute;
+            right: 50px;
+            top: 0;
+            line-height: 0;
+            padding: 8px;
+
+            &:focus {
+                box-shadow: none;
+            }
+
+            &:hover {
+                background: #eeeeee;
+            }
+        }
     }
 
     .card-footer {

@@ -29,7 +29,6 @@ Route::patch('/post/update', 'PostController@update')->name('api.post.update');
 
 
 
-
 Auth::routes();
 
 Route::get('/home', function(){ 
