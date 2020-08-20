@@ -15,14 +15,14 @@ namespace WindowsFormsApp3
     public partial class Form1 : Form
     {
         private readonly string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\file.txt");
+        private HashTable hashTable = new HashTable();
 
         public Form1()
         {
             InitializeComponent();
 
             readFile();
-            dataGridViewHash.Rows.Add("0", "Бюро расписаний");
-            dataGridViewHash.Rows.Add("1", "Бюро пропусков");
+            setDataGridHash();
         }
 
         private void readFile()
@@ -41,6 +41,20 @@ namespace WindowsFormsApp3
                     row[j] = values[j].Trim();
                 }
                 dataGridViewFile.Rows.Add(row);
+
+                hashTable.Insert(row[0], row[1]);
+            }
+        }
+
+        private void setDataGridHash()
+        {
+            dataGridViewHash.Rows.Clear();
+            foreach (var item in hashTable.Items)
+            {
+                foreach (var value in item.Value)
+                {
+                    dataGridViewHash.Rows.Add(item.Key, value.Key);
+                }
             }
         }
 
@@ -82,10 +96,14 @@ namespace WindowsFormsApp3
         {
             string[] row = new string[] { textBoxSubscriber.Text, textBoxPhone.Text, textBoxHome.Text, textBoxSum.Text };
 
+            hashTable.Insert(row[0], row[1]);
+
             dataGridViewFile.Rows.Add(row);
             appendToFile(row);
 
             resetAllFields();
+
+            setDataGridHash();
         }
 
         private void buttonRemove_Click(object sender, EventArgs e)
