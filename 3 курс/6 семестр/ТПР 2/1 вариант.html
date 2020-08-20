@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>ТПР</title>
+</head>
+
+<body>
+    <script>
+        // Матрица отношений предпочтений
+        const baseMatr = [
+            [0, 0, 0, 0, 0, 0, 0],
+            [1, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 1, 0, 0, 1],
+            [0, 1, 0, 0, 1, 1, 0],
+            [0, 1, 0, 0, 0, 0, 0],
+            [1, 0, 0, 1, 0, 0, 0],
+            [0, 0, 1, 0, 0, 1, 0],
+        ];
+
+        // оценки решений
+        let decisionEvaluations = [
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+            undefined,
+        ];
+
+        // находим самые "попущеные" вершины
+        for (let x = 0; x < baseMatr.length; x++) {
+            if (baseMatr[x].indexOf(1) == -1) decisionEvaluations[x] = 0;
+        }
+
+        let XnPlus = []; // кто доминируется
+        let XnMinus = []; // кто доминирует
+
+        for (let x = 0; x < decisionEvaluations.length; x++) {
+            for (let i = 0; i < x; i++) {
+                if (baseMatr[x][i] == 1) XnMinus.push(i);
+                if (baseMatr[i][x] == 1) XnPlus.push(i);
+            }
+
+            if (XnPlus.length == 0 && XnMinus.length != 0) {
+                XnMinus.forEach(nodeNum => {
+                    if (decisionEvaluations[nodeNum] != undefined)
+                        decisionEvaluations[x] =
+                            decisionEvaluations[nodeNum] + 1;
+                });
+            }
+
+            if (XnMinus.length == 0 && XnPlus.length != 0) {
+                XnPlus.forEach(nodeNum => {
+                    if (decisionEvaluations[nodeNum] != undefined)
+                        decisionEvaluations[x] =
+                            decisionEvaluations[nodeNum] - 1;
+                });
+            }
+
+            if (XnMinus.length != 0 && XnPlus.length != 0) {
+                for (let i = 0; i < XnMinus.length; i++) {
+                    for (let j = 0; j < XnPlus.length; j++) {
+                        if (XnMinus[i] == XnPlus[j])
+                            decisionEvaluations[x] =
+                                decisionEvaluations[XnMinus[i]];
+                    }
+                }
+                if (decisionEvaluations[x] == undefined) {
+                    let summ = 0;
+                    for (let i = 0; i < XnMinus.length; i++) {
+                        summ += decisionEvaluations[XnMinus[i]];
+                    }
+                    for (let i = 0; i < XnPlus.length; i++) {
+                        summ += decisionEvaluations[XnPlus[i]];
+                    }
+                    decisionEvaluations[x] = summ /= 2;
+                }
+            }
+
+            XnPlus = [];
+            XnMinus = [];
+        }
+
+        console.log(decisionEvaluations);
+    </script>
+</body>
+
+</html>
