@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace WindowsFormsApp3
 {
@@ -212,7 +213,8 @@ namespace WindowsFormsApp3
                 throw new ArgumentException($"Максимальная длинна ключа составляет {_maxSize} символов.", nameof(value));
             }
 
-            var hash = value.Length;
+            byte[] bytesArray = Encoding.GetEncoding(1251).GetBytes(value);
+            var hash = (bytesArray[value.Length - 2] + bytesArray[value.Length - 1]) % 100;
             return hash;
         }
     }

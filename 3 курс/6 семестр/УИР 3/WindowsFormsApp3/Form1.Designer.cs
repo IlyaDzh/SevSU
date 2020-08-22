@@ -36,8 +36,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewHash = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxSubscriber = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,6 +53,8 @@
             this.buttonReset = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxLog = new System.Windows.Forms.TextBox();
+            this.Hash = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Key = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFile)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHash)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +72,7 @@
             this.dataGridViewFile.Name = "dataGridViewFile";
             this.dataGridViewFile.Size = new System.Drawing.Size(524, 340);
             this.dataGridViewFile.TabIndex = 0;
+            this.dataGridViewFile.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewFile_CellClick);
             // 
             // Column1
             // 
@@ -121,25 +122,13 @@
             // 
             this.dataGridViewHash.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHash.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
+            this.Hash,
+            this.Key});
             this.dataGridViewHash.Location = new System.Drawing.Point(574, 45);
             this.dataGridViewHash.MultiSelect = false;
             this.dataGridViewHash.Name = "dataGridViewHash";
             this.dataGridViewHash.Size = new System.Drawing.Size(375, 340);
             this.dataGridViewHash.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Hash";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Ключ";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 260;
             // 
             // textBoxSubscriber
             // 
@@ -269,6 +258,7 @@
             this.buttonSearch.TabIndex = 17;
             this.buttonSearch.Text = "Найти";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // buttonReset
             // 
@@ -278,6 +268,7 @@
             this.buttonReset.TabIndex = 18;
             this.buttonReset.Text = "Сбросить";
             this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // label9
             // 
@@ -292,11 +283,24 @@
             // textBoxLog
             // 
             this.textBoxLog.Enabled = false;
+            this.textBoxLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxLog.Location = new System.Drawing.Point(574, 423);
             this.textBoxLog.Multiline = true;
             this.textBoxLog.Name = "textBoxLog";
             this.textBoxLog.Size = new System.Drawing.Size(375, 170);
             this.textBoxLog.TabIndex = 20;
+            // 
+            // Hash
+            // 
+            this.Hash.HeaderText = "Hash";
+            this.Hash.Name = "Hash";
+            this.Hash.Width = 70;
+            // 
+            // Key
+            // 
+            this.Key.HeaderText = "Ключ";
+            this.Key.Name = "Key";
+            this.Key.Width = 260;
             // 
             // Form1
             // 
@@ -361,10 +365,10 @@
         private System.Windows.Forms.TextBox textBoxSearchSubscriber;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonReset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxLog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hash;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Key;
     }
 }
 
