@@ -1,0 +1,17 @@
+{
+    "name": "partitioning",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Ilya D.",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mysql2": "^2.1.0",
+        "performance-now": "^2.1.0",
+        "pug": "^3.0.0"
+    }
+}

@@ -1,0 +1,20 @@
+html
+    head
+        title='Лабораторная работа 4'
+        style
+            include style.css
+    body
+        h2=header
+        table
+            tr
+                th='Records'
+                th='SQL query'
+                th='SQL table'
+                th='Time (µs)'
+                for res in results
+                    tr
+                        td=res.n
+                        td=res.sql
+                        td=res.table
+                        td=res.time
+        br
