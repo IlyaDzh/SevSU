@@ -1,0 +1,6 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\Пользователь\Desktop\SevSU\4 курс\7 семестр\ТРСиПВ\ConsoleApplication1\ConsoleApplication1.cpp(51,14): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\Пользователь\Desktop\SevSU\4 курс\7 семестр\ТРСиПВ\ConsoleApplication1\ConsoleApplication1.cpp(67,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Пользователь\Desktop\SevSU\4 курс\7 семестр\ТРСиПВ\ConsoleApplication1\ConsoleApplication1.cpp(68,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Пользователь\Desktop\SevSU\4 курс\7 семестр\ТРСиПВ\ConsoleApplication1\ConsoleApplication1.cpp(78,20): warning C4018: <: несоответствие типов со знаком и без знака
+  ConsoleApplication1.vcxproj -> C:\Users\Пользователь\Desktop\SevSU\4 курс\7 семестр\ТРСиПВ\ConsoleApplication1\Debug\ConsoleApplication1.exe
