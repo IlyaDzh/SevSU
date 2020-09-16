@@ -11,16 +11,15 @@ void printMatrix(vector<vector<int>>);
 int* matrixToVector(vector<vector<int>>);
 int getMinor(int v[9]);
 
-int row, column;
-int determinant;
-
 int main(int argc, char* argv[])
 {
 	MPI_Status status;
-	int rank, size, i = 0;
+	int rank, size = 0;
 	int minorSize;
 	vector< vector<int> > matrix, minorMatrix;
 	int* minorVector;
+	int row, column;
+	int determinant = 0;
 
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &size);
@@ -35,8 +34,8 @@ int main(int argc, char* argv[])
 		printMatrix(matrix);
 
 		for (int j = 0; j < column; j++) {
-			minorVector = matrixToVector(getSubMatrix(matrix, i, j));
-			MPI_Ssend(minorVector, minorSize, MPI_INT, (j + 1), 0, MPI_COMM_WORLD);
+			minorVector = matrixToVector(getSubMatrix(matrix, 0, j));
+			MPI_Send(minorVector, minorSize, MPI_INT, (j + 1), 0, MPI_COMM_WORLD);
 		}
 
 		int result;
@@ -48,7 +47,7 @@ int main(int argc, char* argv[])
 	else {
 		int* vector = new int[minorSize];
 		MPI_Recv(vector, minorSize, MPI_INT, 0, 0, MPI_COMM_WORLD, &status);
-		int answer = matrix[i][rank - 1] * pow((-1), (1 + rank)) * getMinor(vector);
+		int answer = matrix[0][rank - 1] * pow((-1), (1 + rank)) * getMinor(vector);
 		MPI_Send(&answer, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 	}
 
@@ -123,5 +122,3 @@ vector<vector<int>> readMatrixFromFile(string path, int* row, int* column) {
 
 	return matrix;
 }
-
-// mpiexec -n 5
