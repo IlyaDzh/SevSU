@@ -1,0 +1,6 @@
+﻿  ConsoleApplication1.cpp
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 6\ConsoleApplication1\ConsoleApplication1.cpp(14,1): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 6\ConsoleApplication1\ConsoleApplication1.cpp(21,1): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 6\ConsoleApplication1\ConsoleApplication1.cpp(32,1): warning C4305: инициализация: усечение из "double" в "float"
+C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 6\ConsoleApplication1\ConsoleApplication1.cpp(39,1): warning C4305: инициализация: усечение из "double" в "float"
+  ConsoleApplication1.vcxproj -> C:\Users\Пользователь\Desktop\SevSU\3 курс\6 семестр\ТПР 6\ConsoleApplication1\Debug\ConsoleApplication1.exe
