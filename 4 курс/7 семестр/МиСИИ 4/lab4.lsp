@@ -26,6 +26,9 @@
   
   (format t "Показать все маршруты")
   (selectQuery '(Показать все маршруты))
+  
+  (format t "Выбрать маршруты с номерами от 1 до 9~%")
+  (selectQuery '(Выбрать маршруты с номерами от "1" до "9"))
   )
 
 (defvar *db* nil)
@@ -81,13 +84,9 @@
         )
   )
 
-(defun selectByNumber (_number)
-  (if (eq nil (setf rows (remove-if-not #'(lambda (row) (equal (getf row :number) _number)) *db*)))
-      (print "Такого маршрута нет!")
-      (print rows)
-      )
+(defun selectByRangeNumber (startNumber endNumber)
+  (remove-if-not #'(lambda (row) (and (> (parse-integer (getf row :number)) (parse-integer startNumber)) (< (parse-integer (getf row :number)) (parse-integer endNumber)))) *db*)
   )
-
 
 (defun match (p d)
   (cond
@@ -158,18 +157,13 @@
      t)
     ))
 
-;;;; Вспомогательные функции
-
-;; выделение первой литеры из имени
 (defun car-letter (x) (if (not (numberp x)) (car (coerce (string x) 'list))))
 
-;; возвращает имя без первой
 (defun cdr-name (x)
   (intern (coerce (cdr (coerce (string x) 'list)) 'string))
   )
 
-;; проверяет, все ли элементы списка lis имеют значение T
-(defun and-to-list (lis) ;lis - список логических значений
+(defun and-to-list (lis)
   (let ((res t))
     (dolist (temp lis res)
       (setq res (and res temp)))
@@ -203,6 +197,8 @@
      (update (where :end end) :end endNew))
     ((match `(Изменить начальный маршрут у ?number номера на город ?start) q)
      (update (where :number number) :start start))
+    ((match `(Выбрать $ с номерами от ?startNumber до ?endNumber) q)
+     (selectByRangeNumber startNumber endNumber))
     )
   )
 
