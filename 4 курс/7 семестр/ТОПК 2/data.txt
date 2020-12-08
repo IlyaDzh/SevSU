@@ -1,1 +1,1 @@
-FUNC(x)\ { A:="123"\ } FINAL 
+FUNC(x)\ { *:="test" } FINAL 
