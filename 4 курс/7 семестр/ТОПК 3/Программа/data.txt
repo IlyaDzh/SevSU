@@ -1,0 +1,14 @@
+﻿FUNC	100	Ожидалось слово FUNC
+FINAL	200	Ожидалось слово FINAL
+Iden	300	Ожидался 'iden'
+Data	400	Ожидалась 'data'
+Semicolon	501	Ожидалось двоеточие
+Division	502	Ожидалося символ обратного слеша
+Exclamation_mark	503	Ожидался восклицательный знак
+Brace_open	504	Ожидался символ '{'
+Brace_close	505	Ожидался символ '}'
+Bracket_open	506	Ожидался символ '('
+Bracket_close	507	Ожидался символ ')'
+Prisv	508	Нет знака присваивания
+Double_and	509	Ожидался символ '&&'
+Dounbel_exclamation_mark	510	Ожидался символ '!!'
