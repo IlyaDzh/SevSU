@@ -1,7 +1,4 @@
 ﻿#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <stdio.h>
 #include "mpi.h"
 
 using namespace std;
@@ -37,7 +34,13 @@ int main(int argc, char** argv)
 	int index[] = { 2, 5, 7, 10, 12 };
 
 	// Массив, описывающий ребра графа
-	int edges[] = { 1, 3, 0, 2, 4, 1, 3, 0, 2, 4, 1, 3 };
+	int edges[] = {
+		1, 3,
+		0, 2, 4,
+		1, 3,
+		0, 2, 4,
+		1, 3
+	};
 
 	// Сообщение, передаваемое между узлами
 	int message[300];
@@ -190,7 +193,7 @@ int main(int argc, char** argv)
 	if (rank == 0)
 	{
 		(void)getchar();
-		cout << "Topologiya klastera:" << endl;
+		cout << "Cluster topology:" << endl;
 
 		for (int i = 0; i < 5; i++)
 		{
