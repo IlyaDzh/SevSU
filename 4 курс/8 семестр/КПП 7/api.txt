@@ -1,0 +1,10 @@
+http://api.openweathermap.org/data/2.5/weather?q=Sevastopol,ua
+
+http://api.forismatic.com/api/1.0/
+method=getQuote&key=457653&format=xml&lang=ru
+
+
+https://reqres.in/api/users?page=2
+
+https://reqres.in/api/users/
+name="morpheus"&job="leader"
