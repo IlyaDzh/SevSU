@@ -9,14 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     nam = new QNetworkAccessManager(this);
 
-    hideForm();
+    ui->tableView->setModel(&model);
 
-    connect(ui->buttonGet, SIGNAL(clicked()), this, SLOT(showGetForm()));
-    connect(ui->buttonPost, SIGNAL(clicked()), this, SLOT(showPostForm()));
-    connect(ui->buttonSubmit, SIGNAL(clicked()), this, SLOT(submit()));
-    connect(ui->buttonReset, SIGNAL(clicked()), this, SLOT(reset()));
-    connect(ui->buttonMenu, SIGNAL(clicked()), this, SLOT(hideForm()));
-    connect(ui->buttonMenu, SIGNAL(clicked()), this, SLOT(reset()));
+    this->getUsers();
+
+    connect(ui->buttonAdd, SIGNAL(clicked()), this, SLOT(addUser()));
+    connect(ui->buttonRemove, SIGNAL(clicked()), this, SLOT(removeUser()));
     connect(nam, SIGNAL(finished(QNetworkReply*)), this, SLOT(finished(QNetworkReply*)));
 }
 
@@ -25,81 +23,155 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::hideForm()
+void MainWindow::getUsers()
 {
-    ui->buttonGet->setHidden(false);
-    ui->buttonPost->setHidden(false);
-    ui->buttonSubmit->setHidden(true);
-    ui->buttonReset->setHidden(true);
-    ui->label_2->setHidden(true);
-    ui->label_3->setHidden(true);
-    ui->label_4->setHidden(true);
-    ui->lineEditUrl->setHidden(true);
-    ui->lineEditData->setHidden(true);
-    ui->plainTextEdit->setHidden(true);
-    ui->buttonMenu->setHidden(true);
+    QNetworkReply *reply = nam->get(QNetworkRequest(QUrl("http://localhost:3000/users")));
+    hash[reply] = 1;
 }
 
-void MainWindow::showGetForm()
+void MainWindow::addUser()
 {
-    ui->buttonGet->setHidden(true);
-    ui->buttonPost->setHidden(true);
-    ui->buttonSubmit->setHidden(false);
-    ui->buttonReset->setHidden(false);
-    ui->label_2->setHidden(false);
-    ui->label_4->setHidden(false);
-    ui->lineEditUrl->setHidden(false);
-    ui->plainTextEdit->setHidden(false);
-    ui->buttonMenu->setHidden(false);
-}
+    if (ui->lineEdit->text() != "" && ui->lineEdit_2->text() != "" && ui->lineEdit_3->text() != "")
+    {
+        QString fullname = "fullname=" + ui->lineEdit->text() + "&";
+        QString age = "age=" + ui->lineEdit_2->text() + "&";
+        QString address = "address=" + ui->lineEdit_3->text() + "&";
+        QString createdAt = "created_at=" + QDateTime().currentDateTime().toString();
 
-void MainWindow::showPostForm()
-{
-    ui->buttonGet->setHidden(true);
-    ui->buttonPost->setHidden(true);
-    ui->buttonSubmit->setHidden(false);
-    ui->buttonReset->setHidden(false);
-    ui->label_2->setHidden(false);
-    ui->label_3->setHidden(false);
-    ui->label_4->setHidden(false);
-    ui->lineEditUrl->setHidden(false);
-    ui->lineEditData->setHidden(false);
-    ui->plainTextEdit->setHidden(false);
-    ui->buttonMenu->setHidden(false);
-}
+        QByteArray postData;
+        postData.append(fullname.toUtf8());
+        postData.append(age.toUtf8());
+        postData.append(address.toUtf8());
+        postData.append(createdAt.toUtf8());
 
-void MainWindow::submit()
-{
-    QString url = ui->lineEditUrl->text();
-    QString data = ui->lineEditData->text();
+        QNetworkRequest request;
+        request.setUrl(QUrl("http://localhost:3000/users"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 
-    QByteArray postData;
-    postData.append(data.toUtf8());
-
-    if (postData.isEmpty() == true) {
-        nam->get(QNetworkRequest(QUrl(url)));
+        QNetworkReply *reply = nam->post(request, postData);
+        hash[reply] = 2;
     }
     else
     {
-        nam->post(QNetworkRequest(QUrl(url)), postData);
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Заполните все поля");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.exec();
     }
 }
 
-void MainWindow::reset()
+void MainWindow::removeUser()
 {
-    ui->lineEditUrl->setText("");
-    ui->lineEditData->setText("");
-    ui->plainTextEdit->setPlainText("");
+    QItemSelectionModel *select = ui->tableView->selectionModel();
+
+    if (select->hasSelection())
+    {
+        QString id = select->selectedRows(0).value(0).data().toString();
+        removedIndex = select->selectedIndexes().first().row();
+
+        QNetworkReply *reply = nam->deleteResource(QNetworkRequest(QUrl("http://localhost:3000/users/" + id)));
+        hash[reply] = 3;
+    }
 }
 
 void MainWindow::finished(QNetworkReply *reply)
 {
-    if(reply->error() == QNetworkReply::NoError)
+    switch(hash[reply])
     {
-        ui->plainTextEdit->setPlainText(reply->readAll());
+        case 1:
+            getUsersCompleted(reply);
+            break;
+        case 2:
+            addUserCompleted(reply);
+            break;
+        case 3:
+            removeUserCompleted(reply);
+            break;
+    }
+
+    hash.remove(reply);
+}
+
+void MainWindow::getUsersCompleted(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        QJsonDocument doc = QJsonDocument::fromJson(reply->readAll());
+        QJsonArray data = doc.array();
+
+        QStringList headers = QStringList() << "ID" << "Fullname" << "Age" << "Address" << "Created At";
+        model.setHorizontalHeaderLabels(headers);
+        model.setColumnCount(headers.size());
+
+        const int rowCount = data.count();
+        const int columnCount = headers.size();
+
+        model.setRowCount(rowCount);
+        model.setColumnCount(columnCount);
+
+        for (int i = 0; i < rowCount; i++)
+        {
+            QJsonObject row = data[i].toObject();
+
+            model.setItem(i, 0, new QStandardItem(QString::number(row["id"].toInt())));
+            model.setItem(i, 1, new QStandardItem(row["fullname"].toString()));
+            model.setItem(i, 2, new QStandardItem(row["age"].toString()));
+            model.setItem(i, 3, new QStandardItem(row["address"].toString()));
+            model.setItem(i, 4, new QStandardItem(row["created_at"].toString()));
+        }
     }
     else
     {
-        ui->plainTextEdit->setPlainText(reply->errorString());
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Упс, сервер не отвечает");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.exec();
+    }
+}
+
+void MainWindow::addUserCompleted(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        QJsonDocument doc = QJsonDocument::fromJson(reply->readAll());
+        QJsonObject data = doc.object();
+
+        QList<QStandardItem*> newRow;
+        newRow.append(new QStandardItem(QString::number(data["id"].toInt())));
+        newRow.append(new QStandardItem(data["fullname"].toString()));
+        newRow.append(new QStandardItem(data["age"].toString()));
+        newRow.append(new QStandardItem(data["address"].toString()));
+        newRow.append(new QStandardItem(data["created_at"].toString()));
+        model.appendRow(newRow);
+
+        ui->lineEdit->setText("");
+        ui->lineEdit_2->setText("");
+        ui->lineEdit_3->setText("");
+    }
+    else
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Упс, сервер не отвечает");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.exec();
+    }
+}
+
+void MainWindow::removeUserCompleted(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        model.removeRow(removedIndex);
+    }
+    else
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Ошибка");
+        msgBox.setText("Упс, сервер не отвечает");
+        msgBox.setStandardButtons(QMessageBox::Ok);
+        msgBox.exec();
     }
 }

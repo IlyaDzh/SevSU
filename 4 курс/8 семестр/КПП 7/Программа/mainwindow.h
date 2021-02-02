@@ -4,7 +4,12 @@
 #include <QMainWindow>
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkReply>
-#include <QByteArray>
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <QStandardItemModel>
+#include <QMessageBox>
+#include <QDateTime>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,15 +25,18 @@ public:
 
 private:
     Ui::MainWindow *ui;
-
     QNetworkAccessManager *nam;
+    QStandardItemModel model;
+    QHash<QNetworkReply*, int> hash;
+    int removedIndex;
 
 private slots:
-    void hideForm();
-    void showGetForm();
-    void showPostForm();
-    void submit();
-    void reset();
+    void getUsers();
+    void getUsersCompleted(QNetworkReply *reply);
+    void addUser();
+    void addUserCompleted(QNetworkReply *reply);
+    void removeUser();
+    void removeUserCompleted(QNetworkReply *reply);
     void finished(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H
